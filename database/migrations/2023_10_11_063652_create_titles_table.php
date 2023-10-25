@@ -31,7 +31,7 @@ class CreateTitlesTable extends Migration
         });
     }
 
-    /**
+    /**test1
      * Reverse the migrations.
      *
      * @return void
