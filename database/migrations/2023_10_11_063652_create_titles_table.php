@@ -15,14 +15,16 @@ class CreateTitlesTable extends Migration
     {
         Schema::create('titles', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('gender');
-            $table->string('title');
-            $table->string('city');
-            $table->string('area');
-            $table->string('cellphone');
-            $table->string('address');
-            $table->string('website');
+            $table->string('name')->comment('姓名');
+            $table->string('gender')->comment('性別');
+            $table->tinyInteger('session')->comment('屆')->unsigned();
+            $table->string('title')->comment('民意代表');
+            $table->string('city')->comment('縣市');
+            $table->date('birthday')->comment('生日');
+            $table->string('area')->comment('選區');
+            $table->string('cellphone')->comment('電話');
+            $table->string('address')->comment('通訊處');
+            $table->string('website')->comment('個人網站');
             $table->timestamps();
         });
     }

@@ -16,10 +16,10 @@ class CreatePartiesTable extends Migration
         Schema::create('parties', function (Blueprint $table) {
             $table->id();
             $table->string('tname')->comment('黨名');
-            $table->string('chairman');
-            $table->string('secretary');
-            $table->string('standpoint');
-            $table->string('link');
+            $table->string('chairman')->comment('黨主席');
+            $table->string('secretary')->comment('秘書長');
+            $table->string('standpoint')->comment('政治立場');
+            $table->string('link')->comment('官方網站');
             $table->timestamps();
         });
     }
