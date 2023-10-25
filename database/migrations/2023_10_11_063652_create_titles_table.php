@@ -25,6 +25,8 @@ class CreateTitlesTable extends Migration
             $table->string('cellphone')->comment('電話');
             $table->string('address')->comment('通訊處');
             $table->string('website')->comment('個人網站');
+            $table->foreignId('tid')->comment('黨派(外部鍵)');
+            $table->foreign('tid')->references('Id')->on('parties')->onDelete('cascade');
             $table->timestamps();
         });
     }
