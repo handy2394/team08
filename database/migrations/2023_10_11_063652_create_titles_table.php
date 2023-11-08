@@ -20,7 +20,7 @@ class CreateTitlesTable extends Migration
             $table->tinyInteger('session')->comment('屆')->unsigned();
             $table->string('title')->comment('民意代表');
             $table->string('city')->comment('縣市');
-            $table->date('birthday')->comment('生日');
+            $table->string('birthday')->comment('生日');
             $table->string('area')->comment('選區');
             $table->string('cellphone')->comment('電話');
             $table->string('address')->comment('通訊處');
