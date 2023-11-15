@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Titles;
 
 class TitlesController extends Controller
 {
@@ -14,6 +15,7 @@ class TitlesController extends Controller
     public function index()
     {
         //
+        return Titles::all()->toArray();
     }
 
     /**

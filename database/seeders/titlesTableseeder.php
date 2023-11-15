@@ -115,7 +115,7 @@ class titlesTableseeder extends Seeder
       public function run()
       {
         for ($i=0; $i<30;$i++){ 
-        $name= $this->generateRandomName();
+        $name = $this->generateRandomName();
         $gender=$this->generateRandomGender();
         $session = rand(1, 100);
         $city=$this->generateRandomCity();
@@ -124,8 +124,9 @@ class titlesTableseeder extends Seeder
         $cellphone = $this->generateRandomCellphone();
         $address = $this->generateRandomAddress();
         $website = $this->generateRandomWebsite();
-        $tid = rand(1, 100);
-      DB::table('titles')->insert([
+        $tid = rand(1, 30);
+
+        DB::table('titles')->insert([
           'name'=>$name,
           'gender'=>$gender,
           'session'=>$session,
@@ -139,6 +140,5 @@ class titlesTableseeder extends Seeder
           'tid'=>$tid
       ]);
     }
-      }
-   
+   }
 }
