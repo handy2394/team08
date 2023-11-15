@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PartiesController;
-
+use App\Http\Controllers\TitlesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('parties',[partiesController::class,'index'])->name('parties.index');
+
+Route::get('titles',[TitlesController::class,'index'])->name('titles.index');
 
