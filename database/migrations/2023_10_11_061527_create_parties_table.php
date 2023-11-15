@@ -20,7 +20,7 @@ class CreatePartiesTable extends Migration
             $table->string('secretary')->comment('秘書長');
             $table->string('standpoint')->comment('政治立場');
             $table->string('link')->comment('官方網站');
-            $table->timestamps('publish_at');
+            $table->timestamps();
         });
     }
 
