@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-class titlesTableseeder extends Seeder
+class TitlesTableseeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -114,18 +114,20 @@ class titlesTableseeder extends Seeder
 
       public function run()
       {
+        $tidRange=range(1,30);
+        shuffle($tidRange);
         for ($i=0; $i<30;$i++){ 
-        $name = $this->generateRandomName();
-        $gender=$this->generateRandomGender();
-        $session = rand(1, 100);
-        $city=$this->generateRandomCity();
-        $birthday=$this->generateRandomBirthday();
-        $area=$this->generateRandomArea();
-        $cellphone = $this->generateRandomCellphone();
-        $address = $this->generateRandomAddress();
-        $website = $this->generateRandomWebsite();
-        $tid = rand(1, 30);
-
+          $name = $this->generateRandomName();
+          $gender=$this->generateRandomGender();
+          $session = rand(1, 100);
+          $city=$this->generateRandomCity();
+          $birthday=$this->generateRandomBirthday();
+          $area=$this->generateRandomArea();
+          $cellphone = $this->generateRandomCellphone();
+          $address = $this->generateRandomAddress();
+          $website = $this->generateRandomWebsite();
+          $tid = $tidRange[$i];
+          
         DB::table('titles')->insert([
           'name'=>$name,
           'gender'=>$gender,
