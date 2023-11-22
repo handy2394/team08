@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Parties;
+use App\Models\Party;
 
 class PartiesController extends Controller
 {
@@ -14,8 +14,9 @@ class PartiesController extends Controller
      */
     public function index()
     {
-        //
-        return Party::all()->toArray();
+        $p = party::all()->toArray();
+        return view('parties.index')->with('parties', $p);
+        //return Party::all()->toArray();
     }
 
     /**
