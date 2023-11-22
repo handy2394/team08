@@ -13,7 +13,7 @@ class CreatePartiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('parties', function (Blueprint $table) {
+        Schema::create('Party', function (Blueprint $table) {
             $table->id();
             $table->string('tname')->comment('黨名');
             $table->string('chairman')->comment('黨主席');
@@ -31,6 +31,6 @@ class CreatePartiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parties');
+        Schema::dropIfExists('Party');
     }
 }
