@@ -15,7 +15,7 @@ class PartiesController extends Controller
     public function index()
     {
         //
-        return Parties::all()->toArray();
+        return Party::all()->toArray();
     }
 
     /**
