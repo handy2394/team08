@@ -1,9 +1,9 @@
-<html>
-<head>
-    <title>列出所有政黨</title>
-</head>
 
-<body>
+@extends('app')
+
+@section('title','民意代表網站-列出所有政黨')
+
+@section('politics_contents')
 <h1>列出所有政黨</h1>
 
 <table>
@@ -32,5 +32,5 @@
         </tr>    
     @endfor  
 </table>
-</body>
-</html>
+
+@endsection
