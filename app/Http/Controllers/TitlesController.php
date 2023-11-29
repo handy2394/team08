@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Titles;
+use App\Models\title;
 
 class TitlesController extends Controller
 {
@@ -14,8 +14,9 @@ class TitlesController extends Controller
      */
     public function index()
     {
-        //
-        return Titles::all()->toArray();
+        $t=title::all()->toArray();
+        
+        return view('titles.index')->with('titles',$t);
     }
 
     /**
