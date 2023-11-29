@@ -14,7 +14,7 @@ use Illuminate\Support\Carbon;
  
  
 
-class partiesTableseeder extends Seeder 
+class PartiesTableseeder extends Seeder 
 
 { 
 
