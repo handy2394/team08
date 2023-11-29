@@ -1,10 +1,9 @@
-<html>
-<head>
-    <title>民意代表名單</title>
-</head>
 
+@extends('app')
 
-<body>
+@section('title','台灣政黨網站 - 政黨成員名單')
+
+@section('taiwan_title')
 <h1>列出所有民意代表</h1>
 
 <table>
@@ -45,7 +44,5 @@
         </tr>
     @endfor
 <table>
+@endsection
 
-
-</body>
-</html>
