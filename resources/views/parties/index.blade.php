@@ -1,10 +1,10 @@
-<html>
-<head>
-    <title>政黨名單</title>
-</head>
+@extends('app')
 
+@section('title', '台灣政黨 - 列出所有政黨')
 
-<body>
+@section('taiwan_titles')
+<h1>列出所有政黨</h1>
+
 <table>
     <tr>
         <th>編號</th>
@@ -31,6 +31,4 @@
         </tr>    
 @endfor
 </table>
-</body>
-
-</html>
+@endsection
