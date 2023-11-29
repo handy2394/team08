@@ -48,7 +48,7 @@ class TitlesController extends Controller
      */
     public function show($id)
     {
-        //
+        return Title::findOrFail($id)->toArray();
     }
 
     /**
@@ -59,7 +59,7 @@ class TitlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Title::findOrFail($id)->toArray();
     }
 
     /**

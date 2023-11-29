@@ -18,7 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('parties',[partiesController::class,'index'])->name('parties.index');
+
 
 Route::get('titles',[TitlesController::class,'index'])->name('titles.index');
 
+Route::get('titles/{id}', [TitlesController::class, 'show'])->where('id', '[0-9]+')->name('titles.show');
+
+Route::get('titles/{id}/edit', [TitlesController::class, 'edit'])->where('id', '[0-9]+')->name('titles.edit');
+
+
+Route::get('parties',[partiesController::class,'index'])->name('parties.index');
+
+Route::get('parties/{id}', [PartiesController::class, 'show'])->where('id', '[0-9]+')->name('parties.show');
+
+Route::get('parties/{id}/edit', [PartiesController::class, 'edit'])->where('id', '[0-9]+')->name('parties.edit');

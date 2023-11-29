@@ -48,7 +48,7 @@ class PartiesController extends Controller
      */
     public function show($id)
     {
-        //
+        return Party::findOrFail($id)->toArray();
     }
 
     /**
@@ -59,7 +59,7 @@ class PartiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Party::findOrFail($id)->toArray();
     }
 
     /**
