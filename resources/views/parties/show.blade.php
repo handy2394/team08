@@ -11,7 +11,7 @@
 政治立場:{{$party->standpoint }}</br>
 官方網站:{{$party->link }}</br>
 
-<h1>{{$party->tname}}的所有球員</h1>
+<h1>{{$party->tname}}的所有政黨</h1>
 
 <table>
 <tr>
