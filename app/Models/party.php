@@ -18,4 +18,13 @@ class Party extends Model
         'link'
     ];
     
+    public function titles()
+    {
+        return $this->hasMany('App\Models\Title','tid');
+    }
+    public function delete()
+    {
+        $this->titles()->delete();
+        return parent::delete();
+    }   
 }

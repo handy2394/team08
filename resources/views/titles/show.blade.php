@@ -16,6 +16,6 @@
 電話: {{ $title->cellphone }}<br/>
 通訊處: {{ $title->address }}<br/>
 個人網案: {{ $title->website }}<br/>
-黨派: {{ $title->tid }}<br/>  
+黨派: {{ $title->Party->tname }}<br/>  
 
 @endsection

@@ -31,7 +31,7 @@ class PartiesTableseeder extends Seeder
     public function run() 
 
     { 
-
+        
         for ($i=0; $i<30;$i++){ 
 
             $tname = $this->generateRandomtname(); 
@@ -45,6 +45,8 @@ class PartiesTableseeder extends Seeder
             $link = $this->generateRandomlink(); 
 
             $random_datetime = Carbon::now()->subMinutes(rand(1,55)); 
+            
+            
 
  
  
