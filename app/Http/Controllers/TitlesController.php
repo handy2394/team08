@@ -14,10 +14,8 @@ class TitlesController extends Controller
      */
     public function index()
     {
-        //
-        $t = title::all()->toArray();
-        return view('titles.index')->with('titles', $t);
-
+        $titles = title::all();
+        return view('titles.index')->with('titles', $titles);
         //return Titles::all()->toArray();
     }
 
@@ -50,7 +48,8 @@ class TitlesController extends Controller
      */
     public function show($id)
     {
-        return Title::findOrFail($id)->toArray();
+        $title = Title::findOrFail($id);
+        return  view('titles.show')->with('title', $title);
     }
 
     /**

@@ -25,25 +25,25 @@
         <th>操作2</th>
         <th>操作3</th>
     </tr>
-    @for($i=0; $i<count($titles);$i++)
+    @foreach($titles as $title)
     <tr>
-        <td>{{$titles[$i]['id'] }}</td>
-        <td>{{$titles[$i]['name'] }}</td>
-        <td>{{$titles[$i]['gender'] }}</td>
-        <td>{{$titles[$i]['session'] }}</td>
-        <td>{{$titles[$i]['title'] }}</td>
-        <td>{{$titles[$i]['city'] }}</td>
-        <td>{{$titles[$i]['birthday'] }}</td>
-        <td>{{$titles[$i]['area'] }}</td>
-        <td>{{$titles[$i]['cellphone'] }}</td>
-        <td>{{$titles[$i]['address'] }}</td>
-        <td>{{$titles[$i]['website'] }}</td>
-        <td>{{$titles[$i]['tid'] }}</td>
-        <td><a href="{{ route('titles.show', ['id'=>$titles[$i]['id']]) }}">顯示</a></td>
-        <td><a href="{{ route('titles.edit', ['id'=>$titles[$i]['id']]) }}">修改</a></td>    
+        <td>{{$title->id }}</td>
+        <td>{{$title->name }}</td>
+        <td>{{$title->gender }}</td>
+        <td>{{$title->session }}</td>
+        <td>{{$title->title }}</td>
+        <td>{{$title->city }}</td>
+        <td>{{$title->birthday }}</td>
+        <td>{{$title->area }}</td>
+        <td>{{$title->cellphone }}</td>
+        <td>{{$title->address }}</td>
+        <td>{{$title->website }}</td>
+        <td>{{$title->tid }}</td>
+        <td><a href="{{ route('titles.show', ['id'=>$title->id]) }}">顯示</a></td>
+        <td><a href="{{ route('titles.edit', ['id'=>$title->id]) }}">修改</a></td>    
         <td>刪除</td>   
     </tr>
 
-    @endfor  
+    @endforeach  
 </table>
 @endsection
