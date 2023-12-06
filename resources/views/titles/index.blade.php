@@ -40,7 +40,13 @@
             <td>{{$title->party->tname}}</td>
             <td><a href="{{ route('titles.show',['id'=>$title->id]) }}">顯示</a></td>
             <td><a href="{{ route('titles.edit',['id'=>$title->id]) }}">修改</a></td>
-            <td>刪除</td>
+            <td>
+                <form action="{{ url('/titles/delete', ['id' => $title->id]) }}" method="post">
+                    <input class="btn btn-default" type="submit" value="刪除" />
+                    @method('delete')
+                    @csrf
+                </form>
+            </td>
         </tr>
     @endforeach
 <table>

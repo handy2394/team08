@@ -84,6 +84,8 @@ class PartiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $party = Party::findOrFail($id);
+        $party->delete();
+        return redirect('parties');
     }
 }

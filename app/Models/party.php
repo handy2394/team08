@@ -21,4 +21,11 @@ class party extends Model
     {
         return $this->hasMany('App\Models\title','tid');
     }
+
+    public function delete()
+    {
+        $this->titles()->delete();
+        return parent::delete();
+    }        
 }
+
