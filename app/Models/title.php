@@ -17,12 +17,17 @@ class titles extends Model
         'session',
         'title',
         'city',
-        'birthday',
+        'birthday',                         
         'area',
         'cellphone',
         'address',
         'website',
         'tid'
     ];
-    
+    public function paryt()
+    {
+        return $this->belongsTo('App\Models\party', 'tid', 'id');
+    }
+
+
 }

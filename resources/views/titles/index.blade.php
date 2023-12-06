@@ -26,23 +26,30 @@
         <th>操作2</th>
         <th>操作3</th>
     </tr>
-    @for($i=0;$i<count($parties);$i++)
+    @foreach ($players as $player)
     <tr>
-        <td>{{ $player->id }}</td>
-        <td>{{ $player->name }}</td>
-        <td>{{ $player->gender }}</td>
-        <td>{{ $player->session }}</td>
-        <td>{{ $player->title }}</td>
-        <td>{{ $player->city }}</td>
-        <td>{{ $player->birthday }}</td>
-        <td>{{ $player->area }}</td>
-        <td>{{ $player->cellphone }}</td>
-        <td>{{ $player->address }}</td>
-        <td>{{ $player->website }}</td>
-        <td>{{ $player->tid }}</td>
-        <td><a href="{{ route('titles.show', ['id'=>$titles[$i]['id']]) }}">顯示</a></td>
-        <td><a href="{{ route('titles.edit', ['id'=>$titles[$i]['id']]) }}">修改</a></td>    
-        <td>刪除</td> 
+        <td>{{ $title->id }}</td>
+        <td>{{ $title->name }}</td>
+        <td>{{ $title->gender }}</td>
+        <td>{{ $title->session }}</td>
+        <td>{{ $title->title }}</td>
+        <td>{{ $title->city }}</td>
+        <td>{{ $title->birthday }}</td>
+        <td>{{ $title->area }}</td>
+        <td>{{ $title->cellphone }}</td>
+        <td>{{ $title->address }}</td>
+        <td>{{ $title->website }}</td>
+        <td>{{ $title->party->tname }}</td>
+        <td><a href="{{ route('title.show', ['id'=>$title->id]) }}">顯示</a></td>
+        <td><a href="{{ route('title.edit', ['id'=>$title->id]) }}">修改</a></td>    
+        <td>               
+            <form action="{{ url('/titles/delete', ['id' => $title->id]) }}" method="post">
+                    <input class="btn btn-default" type="submit" value="刪除" />
+                    @method('delete')
+                    @csrf
+            </form>
+        </td> 
+        
     </tr>
     @endfor
 </table>

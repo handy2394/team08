@@ -14,8 +14,8 @@ class PartiesController extends Controller
      */
     public function index()
     {
-        //
-        return Parties::all()->toArray();
+        $parties = party::all();
+        return view('parties.index')->with('parties', $parties);
     }
 
     /**
@@ -47,8 +47,9 @@ class PartiesController extends Controller
      */
     public function show($id)
     {
-        $party=Party::findOrFail($id);
-        return view('parties.show')->with('party', $party);
+        $party = Team::findOrFail($id);
+        $titles = $party->titles;
+        return view('parties.show', ['party'=>$party, 'titles'=>$titles]);  
     }
 
     /**
@@ -59,7 +60,7 @@ class PartiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return party::findOrFail($id)->toArray();
     }
 
     /**
@@ -82,6 +83,8 @@ class PartiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $party = Party::findOrFail($id);
+        $party->delete();
+        return redirect('parties');
     }
 }

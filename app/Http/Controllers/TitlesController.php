@@ -14,8 +14,8 @@ class TitlesController extends Controller
      */
     public function index()
     {
-        //
-        return Titles::all()->toArray();
+        $title = Title::all();
+        return view('titles.index')->with('titles', $titles);
     }
 
     /**
@@ -59,7 +59,7 @@ class TitlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Title::findOrFail($id)->toArray();
     }
 
     /**
@@ -82,6 +82,8 @@ class TitlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $title = Title::findOrFail($id);
+        $title->delete();
+        return redirect('titles');
     }
 }

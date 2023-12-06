@@ -26,9 +26,15 @@
             <td>{{ $player->secretary }}</td>
             <td>{{ $player->standpoint }}</td>
             <td>{{ $player->link }}</td>
-            <td><a href="{{ route('parties.show', ['id'=>$parties[$i]['id']]) }}">顯示</a></td>
-            <td><a href="{{ route('parties.edit', ['id'=>$parties[$i]['id']]) }}">修改</a></td>    
-            <td>刪除</td>    
+            <td><a href="{{ route('parties.show', ['id'=>$party->id]) }}">顯示</a></td>
+            <td><a href="{{ route('parties.edit', ['id'=>$party->id]) }}">修改</a></td>        
+            <td>
+                <form action="{{ url('/titles/delete', ['id' => $title->id]) }}" method="post">
+                    <input class="btn btn-default" type="submit" value="刪除" />
+                    @method('delete')
+                    @csrf
+                </form>
+            </td> 
         </tr>
     @endfor
 <table>

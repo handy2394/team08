@@ -24,12 +24,16 @@ use App\Http\Controllers\TitlesController;
 
 // 註解一下
 Route::get('/', function () {
-    return redirect('titles');
+    return redirect('welcome');
 });
-Route::get('titles', [PlayersController::class, 'index'])->name('titles.index');
-Route::get('titles/{id}', [PlayersController::class, 'show'])->where('id', '[0-9]+')->name('titles.show');
-Route::get('titles/{id}/edit', [PlayersController::class, 'edit'])->where('id', '[0-9]+')->name('titles.edit');
 
-Route::get('parties', [TeamsController::class, 'index'])->name('parties.index');
-Route::get('parties/{id}', [TeamsController::class, 'show'])->where('id', '[0-9]+')->name('parties.show');
-Route::get('parties/{id}/edit', [TeamsController::class, 'edit'])->where('id', '[0-9]+')->name('parties.edit');
+Route::get('parties', [PartiesController::class, 'index'])->name('parties.index');
+Route::get('parties/{id}', [PartiesController::class, 'show'])->where('id', '[0-9]+')->name('parties.show');
+Route::get('parties/{id}/edit', [PartiesController::class, 'edit'])->where('id', '[0-9]+')->name('parties.edit');
+Route::delete('parties/delete/{id}', [PartiesController::class, 'destroy'])->where('id', '[0-9]+')->name('parties.destroy');
+
+Route::get('titles', [TitlesController::class, 'index'])->name('titles.index');
+Route::get('titles/{id}', [TitlesController::class, 'show'])->where('id', '[0-9]+')->name('titles.show');
+Route::get('titles/{id}/edit', [TitlesController::class, 'edit'])->where('id', '[0-9]+')->name('titles.edit');
+Route::delete('titles/delete/{id}', [TitlesController::class, 'destroy'])->where('id', '[0-9]+')->name('titles.destroy');
+

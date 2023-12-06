@@ -17,5 +17,14 @@ class parties extends Model
         'standpoint',
         'link'
     ];
-    
+    public function titles()
+    {
+        return $this->hasMany('App\Models\title', 'tid');
+    }
+
+    public function delete()
+    {
+        $this->title()->delete();
+        return parent::delete();
+    }  
 }
