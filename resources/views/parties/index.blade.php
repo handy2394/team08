@@ -18,14 +18,14 @@
         <th>操作2</th>
         <th>操作3</th>
     </tr>
-    @for($i=0; $i<count($parties); $i++)
+    @foreach ($players as $player)
         <tr>
-            <td>{{ $players[$i]['id'] }}</td>
-            <td>{{ $players[$i]['tname'] }}</td>
-            <td>{{ $players[$i]['chairman'] }}</td>
-            <td>{{ $players[$i]['secretary'] }}</td>
-            <td>{{ $players[$i]['standpoint'] }}</td>
-            <td>{{ $players[$i]['link'] }}</td>
+            <td>{{ $player->id }}</td>
+            <td>{{ $player->name }}</td>
+            <td>{{ $player->chairman }}</td>
+            <td>{{ $player->secretary }}</td>
+            <td>{{ $player->standpoint }}</td>
+            <td>{{ $player->link }}</td>
             <td><a href="{{ route('parties.show', ['id'=>$parties[$i]['id']]) }}">顯示</a></td>
             <td><a href="{{ route('parties.edit', ['id'=>$parties[$i]['id']]) }}">修改</a></td>    
             <td>刪除</td>    

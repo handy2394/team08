@@ -11,6 +11,7 @@
 <table>
     <tr>
         <th>編號</th>
+        <th>姓名</th>
         <th>性別</th>
         <th>屆</th>
         <th>民意代表</th>
@@ -27,18 +28,18 @@
     </tr>
     @for($i=0;$i<count($parties);$i++)
     <tr>
-        <td>{{$titles[$i]['id'] }} </td>
-        <td>{{$titles[$i]['name'] }}  </td>
-        <td>{{$titles[$i]['gender'] }} </td>
-        <td>{{$titles[$i]['session'] }} </td>
-        <td>{{$titles[$i]['title'] }} </td>
-        <td>{{$titles[$i]['city'] }} </td>
-        <td>{{$titles[$i]['birthday'] }} </td>
-        <td>{{$titles[$i]['area'] }} </td>
-        <td>{{$titles[$i]['cellphone'] }} </td>
-        <td>{{$titles[$i]['address'] }} </td>
-        <td>{{$titles[$i]['website'] }} </td>
-        <td>{{$titles[$i]['tid'] }}</td>
+        <td>{{ $player->id }}</td>
+        <td>{{ $player->name }}</td>
+        <td>{{ $player->gender }}</td>
+        <td>{{ $player->session }}</td>
+        <td>{{ $player->title }}</td>
+        <td>{{ $player->city }}</td>
+        <td>{{ $player->birthday }}</td>
+        <td>{{ $player->area }}</td>
+        <td>{{ $player->cellphone }}</td>
+        <td>{{ $player->address }}</td>
+        <td>{{ $player->website }}</td>
+        <td>{{ $player->tid }}</td>
         <td><a href="{{ route('titles.show', ['id'=>$titles[$i]['id']]) }}">顯示</a></td>
         <td><a href="{{ route('titles.edit', ['id'=>$titles[$i]['id']]) }}">修改</a></td>    
         <td>刪除</td> 
