@@ -49,7 +49,8 @@ class PartiesController extends Controller
     public function show($id)
     {
         $party=Party::findOrFail($id);
-        return view('parties.show')->with('party',$party);
+        $titles = $party->titles;
+        return view('parties.show',['party'=>$party,'titles'=>$titles]);
     }
 
     /**

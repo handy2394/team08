@@ -37,7 +37,7 @@
             <td>{{$title->cellphone}}</td>
             <td>{{$title->address}}</td>
             <td>{{$title->website}}</td>
-            <td>{{$title->tid}}</td>
+            <td>{{$title->party->tname}}</td>
             <td><a href="{{ route('titles.show',['id'=>$title->id]) }}">顯示</a></td>
             <td><a href="{{ route('titles.edit',['id'=>$title->id]) }}">修改</a></td>
             <td>刪除</td>

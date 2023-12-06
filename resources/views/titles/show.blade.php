@@ -4,42 +4,17 @@
 
 @section('taiwan_titles')
 <h1>你所選取的民意代表資料</h1>
-<table>
-    <tr>
-        <td>編號: {{$title->id }}</td>
-    <tr>  
-    <tr>
-        <td>姓名:{{$title->name }}</td>
-    <tr>
-    <tr>
-        <td>性別:{{$title->gender }}</td>
-    <tr>
-    <tr>
-        <td>屆:{{$title->session }}</td>
-    <tr>
-    <tr>
-        <td>民意代表:{{$title->title }}</td>
-    <tr>
-    <tr>
-        <td>縣市:{{$title->city }}</td>
-    <tr>
-    <tr>
-        <td>生日:{{$title->birthday }}</td>
-    <tr>
-    <tr>
-        <td>選區:{{$title->name }}</td>
-    <tr>
-    <tr>
-        <td>電話:{{$title->cellphone }}</td>
-    <tr>
-    <tr>
-        <td>通訊處:{{$title->address }}</td>
-    <tr>
-    <tr>
-        <td>個人網站:{{$title->website }}</td>
-    <tr>
-    <tr>
-        <td>黨派:{{$title->tid }}</td>
-    <tr>
-<table>
+編號: {{$title->id }}</br>
+姓名:{{$title->name }}</br>
+性別:{{$title->gender }}</br>
+屆:{{$title->session }}</br>
+民意代表:{{$title->title }}</br>
+縣市:{{$title->city }}</br>
+生日:{{$title->birthday }}</br>
+選區:{{$title->name }}</br>
+電話:{{$title->cellphone }}</br>
+通訊處:{{$title->address }}</br>
+個人網站:{{$title->website }}</br>
+黨派:{{$title->tid }}</br>
+
 @endsection

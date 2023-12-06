@@ -25,4 +25,8 @@ class title extends Model
         'tid'
     ];
     
+    public function party()
+    {
+        return $this->belongsTo('App\Models\party','tid','id');
+    }
 }

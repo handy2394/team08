@@ -49,6 +49,7 @@ class TitlesController extends Controller
     public function show($id)
     {
         $title=Title::findOrFail($id);
+        
         return view('titles.show')->with('title',$title);
     }
 

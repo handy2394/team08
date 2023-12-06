@@ -17,5 +17,8 @@ class party extends Model
         'standpoint',
         'link'
     ];
-    
+    public function titles()
+    {
+        return $this->hasMany('App\Models\title','tid');
+    }
 }
