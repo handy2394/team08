@@ -14,9 +14,9 @@ class PartiesController extends Controller
      */
     public function index()
     {
-        $p=party::all()->toArray();
+        $parties=Party::all();
         
-        return view('parties.index')->with('parties',$p);
+        return view('parties.index')->with('parties',$parties);
     }
 
     /**
@@ -48,7 +48,8 @@ class PartiesController extends Controller
      */
     public function show($id)
     {
-        //
+        $party=Party::findOrFail($id);
+        return view('parties.show')->with('party',$party);
     }
 
     /**

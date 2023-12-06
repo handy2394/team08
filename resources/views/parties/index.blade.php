@@ -17,18 +17,18 @@
         <th>操作2</th>  
         <th>操作3</th>
     <tr>     
-    @for($i=0;$i<count($parties);$i++)
+    @foreach($parties as $party)
         <tr>
-            <td>{{$parties[$i]['id'] }} </td>
-            <td>{{$parties[$i]['tname'] }} </td>
-            <td>{{$parties[$i]['chairman'] }}</td>
-            <td>{{$parties[$i]['secretary'] }}</td>
-            <td>{{$parties[$i]['standpoint'] }}</td>
-            <td>{{$parties[$i]['link'] }}</td>
-            <td><a href="{{ route('parties.show',['id'=>$parties[$i]['id']]) }}">顯示</a></td>
-            <td><a href="{{ route('parties.edit',['id'=>$parties[$i]['id']]) }}">修改</a></td>
+            <td>{{$party->id}} </td>
+            <td>{{$party->tname}} </td>
+            <td>{{$party->chairman}}</td>
+            <td>{{$party->secretary}}</td>
+            <td>{{$party->standpoint}}</td>
+            <td>{{$party->link}}</td>
+            <td><a href="{{ route('parties.show',['id'=>$party->id]) }}">顯示</a></td>
+            <td><a href="{{ route('parties.edit',['id'=>$party->id]) }}">修改</a></td>
             <td>刪除</td>
         </tr>    
-@endfor
+    @endforeach
 </table>
 @endsection
