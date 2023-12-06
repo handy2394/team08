@@ -4,6 +4,7 @@
 @section('title','民意代表網站-列出所有民意代表')
 
 @section('politics_contents')
+<h1>顯示單一民意代表</h1>
 議員編號:{{ $title->id }}<br/>
 議員姓名:{{ $title->name }}<br/>
 議員性別:{{ $title->gender }}<br/>
@@ -15,5 +16,5 @@
 議員電話:{{ $title->cellphone }}<br/>
 議員通訊處:{{ $title->address }}<br/>
 議員個人網站:{{ $title->website }}<br/>
-議員黨派:{{ $title->tid }}<br/>
+議員黨派:{{ $title->party->tname }}<br/>
 @endsection

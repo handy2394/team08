@@ -114,7 +114,7 @@ class titlesTableseeder extends Seeder
 
       public function run()
       {
-        for ($i=0; $i<30;$i++){ 
+        for ($i=0; $i<300;$i++){ 
         $name = $this->generateRandomName();
         $gender=$this->generateRandomGender();
         $session = rand(1, 100);
