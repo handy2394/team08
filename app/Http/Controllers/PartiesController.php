@@ -25,7 +25,7 @@ class PartiesController extends Controller
      */
     public function create()
     {
-        //
+        return view('parties.create');
     }
 
     /**
@@ -61,6 +61,8 @@ class PartiesController extends Controller
     public function edit($id)
     {
         return party::findOrFail($id)->toArray();
+        return view('parties.edit', ['party' =>$party]);
+
     }
 
     /**

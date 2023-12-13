@@ -31,9 +31,12 @@ Route::get('parties', [PartiesController::class, 'index'])->name('parties.index'
 Route::get('parties/{id}', [PartiesController::class, 'show'])->where('id', '[0-9]+')->name('parties.show');
 Route::get('parties/{id}/edit', [PartiesController::class, 'edit'])->where('id', '[0-9]+')->name('parties.edit');
 Route::delete('parties/delete/{id}', [PartiesController::class, 'destroy'])->where('id', '[0-9]+')->name('parties.destroy');
+Route::get('parties/create', [PartiesController::class, 'create'])->name('parties.create');
+
 
 Route::get('titles', [TitlesController::class, 'index'])->name('titles.index');
 Route::get('titles/{id}', [TitlesController::class, 'show'])->where('id', '[0-9]+')->name('titles.show');
 Route::get('titles/{id}/edit', [TitlesController::class, 'edit'])->where('id', '[0-9]+')->name('titles.edit');
 Route::delete('titles/delete/{id}', [TitlesController::class, 'destroy'])->where('id', '[0-9]+')->name('titles.destroy');
+Route::get('titles/create', [TitlesController::class, 'create'])->name('titles.create');
 
