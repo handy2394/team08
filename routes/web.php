@@ -32,7 +32,7 @@ Route::get('parties/create', [PartiesController::class, 'create'])->name('partie
 Route::get('parties/{id}/edit', [PartiesController::class, 'edit'])->where('id', '[0-9]+')->name('parties.edit');
 // 修改政黨資料
 Route::patch('parties/update/{id}', [PartiesController::class, 'update'])->where('id', '[0-9]+')->name('parties.update');
-// 儲存政黨員資料
+// 儲存新政黨資料
 Route::post('parties/store', [PartiesController::class, 'store'])->where('id', '[0-9]+')->name('parties.store');
 
 // 顯示顯示所有民意代表資料

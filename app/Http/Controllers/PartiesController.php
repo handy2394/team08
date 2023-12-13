@@ -37,7 +37,20 @@ class PartiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tname = $request->input('tname');
+        $chairman = $request->input('chairman');
+        $secretary = $request->input('secretary');
+        $standpoint = $request->input('standpoint');
+        $link = $request->input('link');
+    
+        Party::create([
+            'tname' => $tname,
+            'chairman' => $chairman,
+            'secretary' => $secretary,
+            'standpoint' => $standpoint,
+            'link' => $link
+        ]);
+        return redirect('titles');
     }
 
     /**
@@ -61,7 +74,8 @@ class PartiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $party = Party::findOrFail($id);
+        return view('parties.edit', ['party'=>$party]);
     }
 
     /**
@@ -73,7 +87,17 @@ class PartiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $party = Party::findOrFail($id);
+
+        $party->tname = $request->input('tname');
+        $party->chairman = $request->input('chairman');
+        $party->secretary = $request->input('secretary');
+        $party->standpoint = $request->input('standpoint');
+        $party->link = $request->input('link');
+
+        $party->save();
+
+        return redirect('parties');
     }
 
     /**
