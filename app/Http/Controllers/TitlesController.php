@@ -15,7 +15,7 @@ class TitlesController extends Controller
      */
     public function index()
     {
-        $title = Title::all();
+        $titles = title::all();
         return view('titles.index')->with('titles', $titles);
     }
 
@@ -26,11 +26,11 @@ class TitlesController extends Controller
      */
     public function create()
     {
-        $parties = Team::orderBy('parties.id', 'asc')->pluck('parties.name', 'parties.id');
-        return view('parties.create', ['parties' =>$parties, 'PartySelected' => null]);
+        $parties = party::orderBy('parties.id', 'asc')->pluck('parties.tname', 'parties.id');
+        return view('titles.create', ['parties' =>$parties, 'partySelected' => null]);
     }
 
-    /**
+    /**s
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -44,17 +44,19 @@ class TitlesController extends Controller
         $title = $request->input('title');
         $city = $request->input('city');
         $birthday = $request->input('birthday');
+        $area=$request->input('area');
         $address = $request->input('address');
         $website = $request->input('website');
         $tid = $request->input('tid');
 
-        $player = Player::create([
+        $title = title::create([
             'name'=>$name,
             'gender'=>$gender,
             'session'=>$session,
             'title'=>$title,
             'city'=>$city,
             'birthday'=>$birthday,
+            'area'=>$area,
             'address'=>$address,
             'website'=>$website,
             'tid'=>$tid]);
@@ -82,7 +84,10 @@ class TitlesController extends Controller
      */
     public function edit($id)
     {
-        return Title::findOrFail($id)->toArray();
+        $title = Title::findOrFail($id);
+        $parties = Party::orderBy('parties.id', 'asc')->pluck('parties.name', 'parties.id');
+        $selected_tags = $title->party->id;
+        return view('titles.edit', ['title' =>$title, 'parties' => $parties, 'partySelected' => $selected_tags]);
     }
 
     /**
@@ -94,18 +99,19 @@ class TitlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $player = Title::findOrFail($id);
-        $player->name = $request->input('name');
-        $player->gender = $request->input('gender');
-        $player->session = $request->input('session');
-        $player->title = $request->input('title');
-        $player->city = $request->input('city');
-        $player->birthday = $request->input('birthday');
-        $player->address = $request->input('address');
-        $player->website = $request->input('website');
-        $player->tid = $request->input('tid');
-
-        $player->save();
+        $title = Title::findOrFail($id);
+        $title->name = $request->input('name');
+        $title->gender = $request->input('gender');
+        $title->session = $request->input('session');
+        $title->title = $request->input('title');
+        $title->city = $request->input('city');
+        $title->birthday = $request->input('birthday');
+        $title->area = $request->input('area');
+        $title->cellphone = $request->input('cellphone');
+        $title->address = $request->input('address');
+        $title->website = $request->input('website');
+        $title->tid = $request->input('tid');
+        $title->save();
 
         return redirect('titles');
     }

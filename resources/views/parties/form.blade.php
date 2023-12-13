@@ -1,53 +1,24 @@
 <div class="form-group">
-    {!! Form::label('name', '球員姓名：') !!}
-    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    {!! Form::label('tname', '黨名：') !!}
+    {!! Form::text('tname', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-    {!! Form::label('gender', '性別 : ') !!}
-    {!! Form::text('gender', null, ['class' => 'form-control']) !!}
+    {!! Form::label('chairman', '黨主席：') !!}
+    {!! Form::text('chairman', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('session', '屆 : ') !!}
-    {!! Form::text('session', null, ['class' => 'form-control']) !!}
+    {!! Form::label('secretary', '秘書長：') !!}
+    {!! Form::text('secretary', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('title', '民意代表 : ') !!}
-    {!! Form::text('title', null, ['class' => 'form-control']) !!}
+    {!! Form::label('standpoint', '政治立場：') !!}
+    {!! Form::text('standpoint', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('city', '縣市 : ') !!}
-    {!! Form::text('city', null, ['class' => 'form-control']) !!}
-</div>
-<div class="form-group">
-    {!! Form::label('birthdate','出生年月日:') !!}
-    {!! Form::date('birthdate',null ,['class'=>'form-control']) !!}
-</div>
-
-<div class="form-group">
-    {!! Form::label('area', '選區 : ') !!}
-    {!! Form::text('area', null, ['class' => 'form-control']) !!}
-</div>
-<div class="form-group">
-    {!! Form::label('cellphone', '電話：') !!}
-    {!! Form::text('cellphone', null, ['class' => 'form-control']) !!}
-</div>
-<div class="form-group">
-    {!! Form::label('address', '通訊處：') !!}
-    {!! Form::text('address', null, ['class' => 'form-control']) !!}
-</div>
-<div class="form-group">
-    {!! Form::label('website', '個人網站：') !!}
-    {!! Form::text('website', null, ['class' => 'form-control']) !!}
-</div>
-<div class="form-group">
-    {!! Form::label('tid', '黨派：') !!}
-    {!! Form::text('tid', null, ['class' => 'form-control']) !!}
+    {!! Form::label('link', '官方網站') !!}
+    {!! Form::text('link', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::submit($submitButtonText, ['class'=>'btn btn-primary form-control']) !!}
-</div>
-<div class="form-group">
-    {!! Form::label('tid', '所屬球隊：') !!}
-    <!-- 待設計一下拉式選單 -->
 </div>

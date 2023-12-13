@@ -4,12 +4,12 @@
 
 @section('Ttitles')
 
-編號：{{ $player->id }}<br/>
-黨名：{{ $player->tname }}<br/>
-黨主席：{{ $player->chairman }}<br/>
-秘書長：{{ $player->secretary }}<br/>
-政治立場：{{ $player->standpoint }}<br/>
-官方網站：{{ $player->link }}<br/>
+編號：{{ $party->id }}<br/>
+黨名：{{ $party->tname }}<br/>
+黨主席：{{ $party->chairman }}<br/>
+秘書長：{{ $party->secretary }}<br/>
+政治立場：{{ $party->standpoint }}<br/>
+官方網站：{{ $party->link }}<br/>
 
 <h1>{{ $party->name }}列出所有議員</h1>
 

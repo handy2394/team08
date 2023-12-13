@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class parties extends Model
+class party extends Model
 {
     use HasFactory;
 
@@ -24,7 +24,7 @@ class parties extends Model
 
     public function delete()
     {
-        $this->title()->delete();
+        $this->titles()->delete();
         return parent::delete();
     }  
 }

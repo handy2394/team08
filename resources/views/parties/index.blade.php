@@ -5,8 +5,8 @@
 
 @section('Ttitles')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-    <a href="{{ route('titles.create') }} ">新增政黨</a>
-    <a href="{{ route('titles.index') }} ">所有政黨</a>
+    <a href="{{ route('parties.create') }} ">新增政黨</a>
+    <a href="{{ route('parties.index') }} ">所有政黨</a>
 </div>
 
 <table>
@@ -21,24 +21,24 @@
         <th>操作2</th>
         <th>操作3</th>
     </tr>
-    @foreach ($players as $player)
+    @foreach ($parties as $party)
         <tr>
-            <td>{{ $player->id }}</td>
-            <td>{{ $player->name }}</td>
-            <td>{{ $player->chairman }}</td>
-            <td>{{ $player->secretary }}</td>
-            <td>{{ $player->standpoint }}</td>
-            <td>{{ $player->link }}</td>
+            <td>{{ $party->id }}</td>
+            <td>{{ $party->tname }}</td>
+            <td>{{ $party->chairman }}</td>
+            <td>{{ $party->secretary }}</td>
+            <td>{{ $party->standpoint }}</td>
+            <td>{{ $party->link }}</td>
             <td><a href="{{ route('parties.show', ['id'=>$party->id]) }}">顯示</a></td>
             <td><a href="{{ route('parties.edit', ['id'=>$party->id]) }}">修改</a></td>        
             <td>
-                <form action="{{ url('/titles/delete', ['id' => $title->id]) }}" method="post">
+                <form action="{{ url('/parties/delete', ['id' => $party->id]) }}" method="post">
                     <input class="btn btn-default" type="submit" value="刪除" />
                     @method('delete')
                     @csrf
                 </form>
             </td> 
         </tr>
-    @endfor
+    @endforeach
 <table>
 @endsection 

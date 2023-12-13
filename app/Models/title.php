@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class titles extends Model
+class title extends Model
 {
     use HasFactory;
 
@@ -24,7 +24,7 @@ class titles extends Model
         'website',
         'tid'
     ];
-    public function paryt()
+    public function party()
     {
         return $this->belongsTo('App\Models\party', 'tid', 'id');
     }

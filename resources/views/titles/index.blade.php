@@ -5,8 +5,8 @@
 @section('Ttitles')
 
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-    <a href="{{ route('parties.create') }} ">新增議員</a>
-    <a href="{{ route('parties.index') }} ">所有議員</a>
+    <a href="{{ route('titles.create') }} ">新增議員</a>
+    <a href="{{ route('titles.index') }} ">所有議員</a>
 </div>
 
 <table>
@@ -27,7 +27,7 @@
         <th>操作2</th>
         <th>操作3</th>
     </tr>
-    @foreach ($players as $player)
+    @foreach ($titles as $title)
     <tr>
         <td>{{ $title->id }}</td>
         <td>{{ $title->name }}</td>
@@ -41,8 +41,8 @@
         <td>{{ $title->address }}</td>
         <td>{{ $title->website }}</td>
         <td>{{ $title->party->tname }}</td>
-        <td><a href="{{ route('title.show', ['id'=>$title->id]) }}">顯示</a></td>
-        <td><a href="{{ route('title.edit', ['id'=>$title->id]) }}">修改</a></td>    
+        <td><a href="{{ route('titles.show', ['id'=>$title->id]) }}">顯示</a></td>
+        <td><a href="{{ route('titles.edit', ['id'=>$title->id]) }}">修改</a></td>    
         <td>               
             <form action="{{ url('/titles/delete', ['id' => $title->id]) }}" method="post">
                     <input class="btn btn-default" type="submit" value="刪除" />
@@ -52,7 +52,7 @@
         </td> 
         
     </tr>
-    @endfor
+    @endforeach
 </table>
 @endsection
 

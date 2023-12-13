@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Party;
+use App\Models\party;
 
 class PartiesController extends Controller
 {
@@ -36,15 +36,15 @@ class PartiesController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->input('name');
+        $tname = $request->input('tname');
         $chairman = $request->input('chairman');
         $secretary = $request->input('secretary');
         $standpoint = $request->input('standpoint');
         $link = $request->input('link');
 
 
-        Team::create([
-            'name' => $name,
+        party::create([
+            'tname' => $tname,
             'chairman' => $chairman,
             'secretary' => $secretary,
             'standpoint' => $standpoint,
@@ -62,7 +62,7 @@ class PartiesController extends Controller
      */
     public function show($id)
     {
-        $party = Team::findOrFail($id);
+        $party = party::findOrFail($id);
         $titles = $party->titles;
         return view('parties.show', ['party'=>$party, 'titles'=>$titles]);  
     }
@@ -90,14 +90,14 @@ class PartiesController extends Controller
     public function update(Request $request, $id)
     {
         $party = party::findOrFail($id);
-        $party->name = $request->input('name');
+        $party->tname = $request->input('tname');
         $party->chairman = $request->input('chairman');
         $party->secretary = $request->input('secretary');
         $party->standpoint = $request->input('standpoint');
         $party->link = $request->input('link');
         $party->save();
 
-        return redirect('teams');
+        return redirect('parties');
     }
 
     /**
@@ -108,7 +108,7 @@ class PartiesController extends Controller
      */
     public function destroy($id)
     {
-        $party = Party::findOrFail($id);
+        $party = party::findOrFail($id);
         $party->delete();
         return redirect('parties');
     }
