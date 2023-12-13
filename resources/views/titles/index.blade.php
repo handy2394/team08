@@ -6,6 +6,11 @@
 @section('taiwan_title')
 <h1>列出所有民意代表</h1>
 
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    <a href="{{ route('titles.create') }} ">新增議員</a>
+    <a href="{{ route('titles.index') }} ">所有議員</a>
+</div>
+
 <table>
     <tr>
         <th>編號</th>

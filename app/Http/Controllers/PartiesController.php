@@ -61,7 +61,8 @@ class PartiesController extends Controller
      */
     public function edit($id)
     {
-        return Party::findOrFail($id)->toArray();
+        $party = Party::findOrFail($id);
+        return view('parties.edit', ['party'=>$party]);
     }
 
     /**

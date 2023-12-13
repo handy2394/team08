@@ -26,7 +26,7 @@ class TitlesController extends Controller
      */
     public function create()
     {
-        //
+        return view('titles.create');
     }
 
     /**
@@ -60,7 +60,8 @@ class TitlesController extends Controller
      */
     public function edit($id)
     {
-        return Title::findOrFail($id)->toArray();
+        $title = Title::findOrFail($id);
+        return view('titles.edit', ['title' =>$title]);
     }
 
     /**

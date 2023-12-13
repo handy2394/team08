@@ -28,6 +28,15 @@ Route::get('titles/{id}/edit', [TitlesController::class, 'edit'])->where('id', '
 
 Route::delete('titles/delete/{id}', [TitlesController::class, 'destroy'])->where('id', '[0-9]+')->name('titles.destroy');
 
+Route::get('titles/create', [TitlesController::class, 'create'])->name('titles.create');
+
+Route::get('titles/{id}/edit', [TitlesController::class, 'edit'])->where('id', '[0-9]+')->name('titles.edit');
+
+Route::patch('titles/update/{id}', [TitlesController::class, 'update'])->where('id', '[0-9]+')->name('titles.update');
+
+
+
+
 
 Route::get('parties',[partiesController::class,'index'])->name('parties.index');
 
@@ -36,3 +45,9 @@ Route::get('parties/{id}', [PartiesController::class, 'show'])->where('id', '[0-
 Route::get('parties/{id}/edit', [PartiesController::class, 'edit'])->where('id', '[0-9]+')->name('parties.edit');
 
 Route::delete('parties/delete/{id}', [PartiesController::class, 'destroy'])->where('id', '[0-9]+')->name('parties.destroy');
+
+Route::get('parties/create', [PartiesController::class, 'create'])->name('parties.create');
+
+Route::get('parties/{id}/edit', [PartiesController::class, 'edit'])->where('id', '[0-9]+')->name('parties.edit');
+
+Route::patch('parties/update/{id}', [PartiesController::class, 'update'])->where('id', '[0-9]+')->name('parties.update');
