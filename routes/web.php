@@ -38,7 +38,7 @@ Route::get('titles/create',[TitlesController::class,'create'])->name('titles.cre
 Route::get('titles/{id}/edit', [TitlesController::class, 'edit'])->where('id', '[0-9]+')->name('titles.edit');
 // 修改
 Route::patch('titles/update/{id}', [TitlesController::class, 'update'])->where('id', '[0-9]+')->name('titles.update');
-// 儲存
+// 儲存資料
 Route::post('titles/store', [TitlesController::class, 'store'])->where('id', '[0-9]+')->name('titles.store');
 
 
@@ -55,5 +55,5 @@ Route::get('parties/create',[PartiesController::class,'create'])->name('parties.
 Route::get('parties/{id}/edit', [PartiesController::class, 'edit'])->where('id', '[0-9]+')->name('parties.edit');
 // 修改
 Route::patch('parties/update/{id}', [PartiesController::class, 'update'])->where('id', '[0-9]+')->name('parties.update');
-// 儲存
+// 儲存資料
 Route::post('parties/store', [PartiesController::class, 'store'])->where('id', '[0-9]+')->name('parties.store');
