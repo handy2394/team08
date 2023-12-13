@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Title;
+use App\Models\Party;
 
 class TitlesController extends Controller
 {
@@ -26,7 +27,8 @@ class TitlesController extends Controller
      */
     public function create()
     {
-        return view('titles.create');
+        $parties = Party::orderBy('parties.id', 'asc')->pluck('parties.tname', 'parties.id');
+        return view('titles.create', ['parties' =>$parties, 'partySelected' => null]);
     }
 
     /**
@@ -37,8 +39,33 @@ class TitlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->input('name');
+        $gender = $request->input('gender');
+        $session = $request->input('session');
+        $title = $request->input('title');
+        $city = $request->input('city');
+        $birthday = $request->input('birthday');
+        $area = $request->input('area');
+        $cellphone = $request->input('cellphone');
+        $address = $request->input('address');
+        $website = $request->input('website');
+        $tid = $request->input('tid');
+
+        $title = Title::create([
+            'name'=>$name,
+            'gender'=>$gender,
+            'session'=>$session,
+            'title'=>$title,
+            'city'=>$city,
+            'birthday'=>$birthday,
+            'area'=>$area,
+            'cellphone'=>$cellphone,
+            'address'=>$address,
+            'website'=>$website,
+            'tid'=>$tid]);
+        return redirect('titles');
     }
+    
 
     /**
      * Display the specified resource.
@@ -61,7 +88,9 @@ class TitlesController extends Controller
     public function edit($id)
     {
         $title = Title::findOrFail($id);
-        return view('titles.edit', ['title' =>$title]);
+        $parties = Party::orderBy('parties.id', 'asc')->pluck('parties.tname', 'parties.id');
+        $selected_tags = $title->party->id;
+        return view('titles.edit', ['title' =>$title, 'partires' => $parties, 'partySelected' => $selected_tags]);
     }
 
     /**
@@ -73,7 +102,22 @@ class TitlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $title = Title::findOrFail($id);
+
+        $title->name = $request->input('name');
+        $title->gender = $request->input('gender');
+        $title->session = $request->input('session');
+        $title->title = $request->input('title');
+        $title->city = $request->input('city');
+        $title->birthday = $request->input('birthday');
+        $title->area = $request->input('area');
+        $title->cellphone = $request->input('cellphone');
+        $title->address = $request->input('address');
+        $title->website = $request->input('website');
+        $title->tid = $request->input('tid');
+        $title->save();
+
+        return redirect('titles');
     }
 
     /**

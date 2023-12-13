@@ -4,7 +4,7 @@
 </div>
 <div class="form-group">
     {!! Form::label('gender', '性別：') !!}
-    <!-- 待設計一下拉式選單 -->
+    {!! Form::text('gender',null ,['class'=>'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('session','屆:') !!}
@@ -40,7 +40,7 @@
 </div>
 <div class="form-group">
     {!! Form::label('tid', '黨派：') !!}
-    {!! Form::text('tid', null, ['class' => 'form-control']) !!}
+    {!! Form::select('tid', $parties,$partySelected, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::submit($submitButtonText, ['class'=>'btn btn-primary form-control']) !!}

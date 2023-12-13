@@ -34,6 +34,7 @@ Route::get('titles/{id}/edit', [TitlesController::class, 'edit'])->where('id', '
 
 Route::patch('titles/update/{id}', [TitlesController::class, 'update'])->where('id', '[0-9]+')->name('titles.update');
 
+Route::post('titles/store', [TitlesController::class, 'store'])->where('id', '[0-9]+')->name('titles.store');
 
 
 
@@ -51,3 +52,5 @@ Route::get('parties/create', [PartiesController::class, 'create'])->name('partie
 Route::get('parties/{id}/edit', [PartiesController::class, 'edit'])->where('id', '[0-9]+')->name('parties.edit');
 
 Route::patch('parties/update/{id}', [PartiesController::class, 'update'])->where('id', '[0-9]+')->name('parties.update');
+
+Route::post('parties/store', [PartiesController::class, 'store'])->name('parties.store');

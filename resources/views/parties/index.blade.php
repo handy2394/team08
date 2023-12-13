@@ -3,7 +3,10 @@
 @section('title','台灣政黨網站 - 政黨成員名單')
 
 @section('taiwan_title')
-
+<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    <a href="{{ route('parties.create') }} ">新增政黨</a>
+    <a href="{{ route('parties.index') }} ">所有政黨</a>
+</div>
 
 
 <table>
