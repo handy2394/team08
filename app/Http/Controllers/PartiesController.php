@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Parties;
+use App\Models\Party;
 
 class PartiesController extends Controller
 {
@@ -36,7 +36,22 @@ class PartiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->input('name');
+        $chairman = $request->input('chairman');
+        $secretary = $request->input('secretary');
+        $standpoint = $request->input('standpoint');
+        $link = $request->input('link');
+
+
+        Team::create([
+            'name' => $name,
+            'chairman' => $chairman,
+            'secretary' => $secretary,
+            'standpoint' => $standpoint,
+            'link' => $link
+        ]);
+
+        return redirect('parties');
     }
 
     /**
@@ -74,7 +89,15 @@ class PartiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $party = party::findOrFail($id);
+        $party->name = $request->input('name');
+        $party->chairman = $request->input('chairman');
+        $party->secretary = $request->input('secretary');
+        $party->standpoint = $request->input('standpoint');
+        $party->link = $request->input('link');
+        $party->save();
+
+        return redirect('teams');
     }
 
     /**

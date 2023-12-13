@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Titles;
+use App\Models\title;
+use App\Models\party;
 
 class TitlesController extends Controller
 {
@@ -25,7 +26,8 @@ class TitlesController extends Controller
      */
     public function create()
     {
-        //
+        $parties = Team::orderBy('parties.id', 'asc')->pluck('parties.name', 'parties.id');
+        return view('parties.create', ['parties' =>$parties, 'PartySelected' => null]);
     }
 
     /**
@@ -36,7 +38,28 @@ class TitlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->input('name');
+        $gender = $request->input('gender');
+        $session = $request->input('session');
+        $title = $request->input('title');
+        $city = $request->input('city');
+        $birthday = $request->input('birthday');
+        $address = $request->input('address');
+        $website = $request->input('website');
+        $tid = $request->input('tid');
+
+        $player = Player::create([
+            'name'=>$name,
+            'gender'=>$gender,
+            'session'=>$session,
+            'title'=>$title,
+            'city'=>$city,
+            'birthday'=>$birthday,
+            'address'=>$address,
+            'website'=>$website,
+            'tid'=>$tid]);
+            
+        return redirect('titles');
     }
 
     /**
@@ -71,7 +94,20 @@ class TitlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $player = Title::findOrFail($id);
+        $player->name = $request->input('name');
+        $player->gender = $request->input('gender');
+        $player->session = $request->input('session');
+        $player->title = $request->input('title');
+        $player->city = $request->input('city');
+        $player->birthday = $request->input('birthday');
+        $player->address = $request->input('address');
+        $player->website = $request->input('website');
+        $player->tid = $request->input('tid');
+
+        $player->save();
+
+        return redirect('titles');
     }
 
     /**
@@ -82,7 +118,7 @@ class TitlesController extends Controller
      */
     public function destroy($id)
     {
-        $title = Title::findOrFail($id);
+        $title = title::findOrFail($id);
         $title->delete();
         return redirect('titles');
     }
