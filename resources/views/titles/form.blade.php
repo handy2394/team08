@@ -38,8 +38,8 @@
     {!! Form::text('website', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('tid', '所屬黨派:') !!}
-    <!---->
+    {!! Form::label('tid', '所屬黨派:') !!} 
+    {!! Form::select('tid', $parties, $partySelected, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::submit($submitButtonText, ['class'=>'btn btn-primary form-control']) !!}

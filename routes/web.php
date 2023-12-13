@@ -32,6 +32,8 @@ Route::get('parties/create', [PartiesController::class, 'create'])->name('partie
 Route::get('parties/{id}/edit', [PartiesController::class, 'edit'])->where('id', '[0-9]+')->name('parties.edit');
 // 修改政黨資料
 Route::patch('parties/update/{id}', [PartiesController::class, 'update'])->where('id', '[0-9]+')->name('parties.update');
+// 儲存政黨員資料
+Route::post('parties/store', [PartiesController::class, 'store'])->where('id', '[0-9]+')->name('parties.store');
 
 // 顯示顯示所有民意代表資料
 Route::get('titles',[TitlesController::class,'index'])->name('titles.index');
@@ -45,5 +47,7 @@ Route::delete('titles/delete/{id}', [TitlesController::class, 'destroy'])->where
 Route::get('titles/create', [TitlesController::class, 'create'])->name('titles.create');
 // 修改民意代表表單
 Route::get('titles/{id}/edit', [TitlesController::class, 'edit'])->where('id', '[0-9]+')->name('titles.edit');
-// 修改民意資料
+// 修改民意代表資料
 Route::patch('titles/update/{id}', [TitlesController::class, 'update'])->where('id', '[0-9]+')->name('titles.update');
+// 儲存新民意代表資料
+Route::post('titles/store', [TitlesController::class, 'store'])->where('id', '[0-9]+')->name('titles.store');
