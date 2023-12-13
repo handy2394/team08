@@ -61,7 +61,9 @@ class TitlesController extends Controller
             'area'=>$area,
             'cellphone'=>$cellphone,
             'address'=>$address,
-            'website'=>$website]);
+            'website'=>$website,
+            'tid'=>$tid
+        ]);
         return redirect('titles');
     }
 

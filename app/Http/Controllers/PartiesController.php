@@ -50,7 +50,7 @@ class PartiesController extends Controller
             'standpoint' => $standpoint,
             'link' => $link
         ]);
-        return redirect('titles');
+        return redirect('parties');
     }
 
     /**
