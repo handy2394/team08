@@ -2,7 +2,7 @@
 
 @section('title', '列出所有政黨')
 
-@section('Ttitles')
+@section('Titles')
 
 編號：{{ $party->id }}<br/>
 黨名：{{ $party->tname }}<br/>

@@ -2,7 +2,7 @@
 
 @section('title', '列出所有議員')
 
-@section('Ttitles')
+@section('Titles')
 
 編號：{{ $title->id }}<br/>
 姓名：{{ $title->name }}<br/>

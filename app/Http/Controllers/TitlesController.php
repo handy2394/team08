@@ -88,7 +88,7 @@ class TitlesController extends Controller
     public function edit($id)
     {
         $title = Title::findOrFail($id);
-        $parties = Party::orderBy('parties.id', 'asc')->pluck('parties.name', 'parties.id');
+        $parties = Party::orderBy('parties.id', 'asc')->pluck('parties.tname', 'parties.id');
         $selected_tags = $title->party->id;
         return view('titles.edit', ['title' =>$title, 'parties' => $parties, 'partySelected' => $selected_tags]);
     }
