@@ -30,7 +30,7 @@ class CreateTitleRequest extends FormRequest
          'title' => 'required|string|min:2|max:2',
          'city' => 'required|string|min:3|max:3',
          'birthday' => 'required',
-         'area' => 'required|string|min:3|max:3',
+         'area' => 'required|string|min:2|max:3',
          'cellphone' =>'required|numeric',
          'address' => 'required',
          'website' => 'required',
