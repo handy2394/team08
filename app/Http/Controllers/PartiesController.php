@@ -38,6 +38,20 @@ class PartiesController extends Controller
      */
     public function store(CreatePartyRequest $request)
     {
+        $request->validate([
+        'tname' => 'required|string',
+        'chairman' => 'required|string',
+        'secretary' => 'required|string',
+        'standpoint' => 'required',
+        'link' => 'required|string'
+        ],[
+        "tname.required" => "政黨名稱 為必填",
+        "chairman.required" => "黨主席名稱 為必填",
+        "secretary.required" => "秘書長名稱 為必填",
+        "standpoint.required" => "政治立場 為必填",
+        "link.required" => "官方網站 為必填"
+        ]);
+
         $tname = $request->input('tname');
         $chairman = $request->input('chairman');
         $secretary = $request->input('secretary');
