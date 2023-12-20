@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+#use Illuminate\Http\Request;
 use App\Models\Title;
 use App\Models\Party;
+use App\Http\Requests\CreateTitleRequest;
 
 class TitlesController extends Controller
 {
@@ -37,7 +38,7 @@ class TitlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateTitleRequest $request)
     {
         $name = $request->input('name');
         $gender = $request->input('gender');

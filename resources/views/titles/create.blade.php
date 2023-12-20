@@ -5,7 +5,8 @@
 @section('taiwan_theme', '建立議員的表單')
 
 @section('taiwan_title')
+@include('message.list')
     {!! Form::open(['url' => 'titles/store']) !!}
-    @include('titles.form', ['submitButtonText'=>"新增議員資料"])
+    @include('titles.form', ['submitButtonText'=>"新增球員資料"])
     {!! Form::close() !!}
 @endsection
