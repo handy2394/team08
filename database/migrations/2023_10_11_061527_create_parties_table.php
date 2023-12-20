@@ -14,7 +14,7 @@ class CreatePartiesTable extends Migration
     public function up()
     {
         Schema::create('parties', function (Blueprint $table) {
-            $table->id();
+            $table->id()->comment();
             $table->string('tname')->comment('黨名');
             $table->string('chairman')->comment('黨主席');
             $table->string('secretary')->comment('秘書長');
