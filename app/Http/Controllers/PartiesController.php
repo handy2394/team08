@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CreatePartyRequest;
 use App\Models\Party;
+
 
 class PartiesController extends Controller
 {
@@ -36,7 +37,7 @@ class PartiesController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function store(Request $request)
+    public function store(CreatePartyRequest $request)
     {
         $tname = $request->input('tname');
         $chairman = $request->input('chairman');   
@@ -87,7 +88,7 @@ class PartiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreatePartyRequest $request, $id)
     {
         $party= Party::findOrFail($id);
 
