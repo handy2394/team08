@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\title;
 use App\Models\party;
+use App\Http\Requests\CreateTitleRequest;
 
 class TitlesController extends Controller
 {
@@ -37,7 +37,7 @@ class TitlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateTitleRequest $request)
     {
         $name = $request->input('name');
         $gender = $request->input('gender');
@@ -89,7 +89,7 @@ class TitlesController extends Controller
     public function edit($id)
     {
         $title = Title::findOrFail($id);
-        $parties = Title::orderBy('titles.id', 'asc')->pluck('titles.name', 'titles.id');
+        $parties = Party::orderBy('parties.id', 'asc')->pluck('parties.tname', 'parties.id');
         $selected_tags = $title->party->id;
         return view('titles.edit', ['title' =>$title, 'parties' => $parties, 'partySelected' => $selected_tags]);
     }
@@ -101,7 +101,7 @@ class TitlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateTitleRequest $request, $id)
     {
         $title = Title::findOrFail($id);
 
