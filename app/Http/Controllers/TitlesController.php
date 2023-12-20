@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Models\title;
 use App\Models\party;
+use App\Http\Requests\CreateTitleRequest;
 
 class TitlesController extends Controller
 {
@@ -36,7 +37,7 @@ class TitlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateTitleRequest $request)
     {
         $name = $request->input('name');
         $gender = $request->input('gender');
@@ -45,6 +46,7 @@ class TitlesController extends Controller
         $city = $request->input('city');
         $birthday = $request->input('birthday');
         $area=$request->input('area');
+        $cellphone=$request->input('cellphone');
         $address = $request->input('address');
         $website = $request->input('website');
         $tid = $request->input('tid');
@@ -57,6 +59,7 @@ class TitlesController extends Controller
             'city'=>$city,
             'birthday'=>$birthday,
             'area'=>$area,
+            'cellphone'=>$cellphone,
             'address'=>$address,
             'website'=>$website,
             'tid'=>$tid]);
@@ -97,7 +100,7 @@ class TitlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateTitleRequest $request, $id)
     {
         $title = Title::findOrFail($id);
         $title->name = $request->input('name');

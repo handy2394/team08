@@ -419,7 +419,7 @@
                     @include('header')
                 </div>
                 <div class="p-6 border-t border-w-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                    @yield('Ttitles')
+                    @yield('Titles')
                 </div>
             </div>
         </div>

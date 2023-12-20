@@ -1,11 +1,12 @@
 @extends('app')
 
-@section('title', '建立名義代表表單')
+@section('title', '建立政黨表單')
 
-@section('nba_theme', '建立名義代表表單')
+@section('header', '建立政黨表單')
 
-@section('Ttitles')
+@section('Titles')
+    @include('message.list')
     {!! Form::open(['url' => 'parties/store']) !!}
-    @include('parties.form', ['submitButtonText'=>"新增名義代表資料"])
+    @include('parties.form', ['submitButtonText'=>"新增政黨資料"])
     {!! Form::close() !!}
 @endsection

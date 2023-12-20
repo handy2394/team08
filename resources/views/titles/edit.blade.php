@@ -1,11 +1,11 @@
 @extends('app')
 
-@section('title', '編輯特定球隊')
+@section('title', '編輯民意代表')
 
-@section('nba_theme', '編輯中的球隊')
+@section('taiwan_theme', '編輯民意代表')
 
-@section('Ttitles')
-    {!! Form::model($party, ['method'=>'PATCH', 'action'=>['\App\Http\Controllers\TitlesController@update', $title->id]]) !!}
-    @include('titles.form', ['submitButtonText'=>'更新球隊資料'])
+@section('Titles')
+    {!! Form::model($title, ['method'=>'PATCH', 'action'=>['\App\Http\Controllers\TitlesController@update', $title->id]]) !!}
+    @include('titles.form', ['submitButtonText'=>'更新民意代表'])
     {!! Form::close() !!}
 @endsection

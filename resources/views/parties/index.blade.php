@@ -3,7 +3,7 @@
 
 @section('title', '列出所有政黨')
 
-@section('Ttitles')
+@section('Titles')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
     <a href="{{ route('parties.create') }} ">新增政黨</a>
     <a href="{{ route('parties.index') }} ">所有政黨</a>
