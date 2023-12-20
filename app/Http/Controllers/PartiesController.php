@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Party;
-use App\Http\Requests\CreatePartyRequest;
+use Illuminate\Http\Request;
 
 class PartiesController extends Controller
 {
@@ -37,9 +37,27 @@ class PartiesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreatePartyRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'tname' => 'required|string',
+            'chairman' => 'required|string',
+            'secretary' => 'required|string',
+            'standpoint' => 'required|string',
+            'link' => 'required|string'
+        ], [
+            "tname.required" => "政黨名稱 為必填",
+           // "tname.min" => "政黨名稱 至少需2個字元",
+            "chairman.required" => "黨主席 為必填",
+           // "chairman.min" => "黨主席 至少需2個字元",
+            "secretary.required" => "秘書長 為必填",
+           // "secretary.min" => "秘書長 至少需2個字元",
+            "standpoint.required" => "政治立場 為必填",
+           // "standpoint.min" => "政治立場 至少需2個字元",
+            "link.required" => "官方網站 為必填",
+        ]);
+
+
         $tname = $request->input('tname');
         $chairman = $request->input('chairman');
         $secretary = $request->input('secretary');
@@ -89,9 +107,28 @@ class PartiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CreatePartyRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'tname' => 'required|string',
+            'chairman' => 'required|string',
+            'secretary' => 'required|string',
+            'standpoint' => 'required|string',
+            'link' => 'required|string'
+        ], [
+            "tname.required" => "政黨名稱 為必填",
+           // "tname.min" => "政黨名稱 至少需2個字元",
+            "chairman.required" => "黨主席 為必填",
+           // "chairman.min" => "黨主席 至少需2個字元",
+            "secretary.required" => "秘書長 為必填",
+           // "secretary.min" => "秘書長 至少需2個字元",
+            "standpoint.required" => "政治立場 為必填",
+           // "standpoint.min" => "政治立場 至少需2個字元",
+            "link.required" => "官方網站 為必填",
+        ]);
+
+
+
         $party = party::findOrFail($id);
 
         $party->tname = $request->input('tname');
