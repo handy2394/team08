@@ -32,15 +32,15 @@ class CreatePartyRequest extends FormRequest
         ];
     }
 
-    public function message()
+    public function messages()
     {
       return
       [
          'tname.required' => '政黨名稱(必填)',
-         'chairman' => '黨主席(必填)',
-         'secretary' => '秘書長(必填)',
-         'standpoint' => '政治立場(必填)',
-         'link' => '官方網站(必填)'
+         'chairman.required' => '黨主席(必填)',
+         'secretary.required' => '秘書長(必填)',
+         'standpoint.required' => '政治立場(必填)',
+         'link.required' => '官方網站(必填)'
       ];
     }
 }
