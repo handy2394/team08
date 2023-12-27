@@ -16,7 +16,7 @@ class TitlesController extends Controller
      */
     public function index()
     {
-        $titles=Title::all();
+        $titles = title::paginate(25);
         $city = Title::allCity()->pluck('titles.city', 'titles.city');
         
         return view('titles.index', ['titles' => $titles, 'city'=>$city, 'citySelected'=>null]);
@@ -29,7 +29,7 @@ class TitlesController extends Controller
      */
     public function city(Request $request)
     {
-        $titles = Title::city($request->input('pos'))->get();
+        $titles = Title::city($request->input('pos'))->paginate(25);
         $city = Title::allCity()->pluck('titles.city', 'titles.city');
         $citySelected = $request->input('pos');
         return view('titles.index', ['titles' => $titles,'city'=>$city, 'citySelected'=>$citySelected]);

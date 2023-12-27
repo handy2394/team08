@@ -59,6 +59,7 @@
         </tr>
     @endforeach
 <table>
+{{ $titles->links() }}
 @endsection
 
 
