@@ -6,6 +6,10 @@
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
     <a href="{{ route('parties.create') }} ">新增政黨</a>
     <a href="{{ route('parties.index') }} ">所有政黨</a>
+    <a href="{{ route('parties.green') }} ">泛綠政黨</a>
+    <a href="{{ route('parties.blue') }} ">泛藍政黨</a>
+    <a href="{{ route('parties.no') }} ">無傾向</a>
+    <a href="{{ route('parties.other') }} ">其他</a>
 </div>
 
 
@@ -31,6 +35,7 @@
             <td>{{ $party->link }} </td>
             <td><a href="{{ route('parties.show',['id'=>$party->id]) }}">顯示</a></td>
             <td><a href="{{ route('parties.edit',['id'=>$party->id]) }}">修改</a></td>
+    
             <td>
                 <form action="{{ url('/parties/delete',['id'=>$party->id]) }}" method='post'>
                     <input class='btn btn-default' type='submit' value='刪除' />

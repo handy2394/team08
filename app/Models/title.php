@@ -28,5 +28,16 @@ class Title extends Model
     {
         return $this->belongsTo('App\Models\Party','tid','id');
     }
-    
+    Public function scopegender($query,$gender)
+    {
+      $query->where('gender','=',$gender);
+    }
+    public function scopeallcitys($query)
+    {
+      return $query->select('city')->groupBy('city');
+    }
+    public function scopecity($query,$pos)
+    {
+      return $query->where('city','=',$pos);
+    }
 }

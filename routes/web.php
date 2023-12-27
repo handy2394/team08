@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('/get');
 
 Route::get('titles',[TitlesController::class,'index'])->name('titles.index');
 
@@ -35,6 +35,13 @@ Route::get('titles/{id}/edit', [TitlesController::class, 'edit'])->where('id', '
 Route::patch('titles/update/{id}', [TitlesController::class, 'update'])->where('id', '[0-9]+')->name('titles.update');
 
 Route::post('titles/store', [TitlesController::class, 'store'])->where('id', '[0-9]+')->name('titles.store');
+
+Route::get('titles/city', [TitlesController::class, 'city'])->name('titles.city');
+
+
+Route::get('titles/men',[TitlesController::class,'men'])->name('titles.men');
+Route::get('titles/girl',[TitlesController::class,'girl'])->name('titles.girl');
+Route::get('titles/no',[TitlesController::class,'no'])->name('titles.no');
 
 
 
@@ -54,3 +61,8 @@ Route::get('parties/{id}/edit', [PartiesController::class, 'edit'])->where('id',
 Route::patch('parties/update/{id}', [PartiesController::class, 'update'])->where('id', '[0-9]+')->name('parties.update');
 
 Route::post('parties/store', [PartiesController::class, 'store'])->name('parties.store');
+
+Route::get('parties/green',[PartiesController::class, 'green'])->name('parties.green');
+Route::get('parties/blue',[PartiesController::class, 'blue'])->name('parties.blue');
+Route::get('parties/no',[PartiesController::class, 'no'])->name('parties.no');
+Route::get('parties/other',[PartiesController::class, 'other'])->name('parties.other');

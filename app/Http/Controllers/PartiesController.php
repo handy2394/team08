@@ -135,4 +135,24 @@ class PartiesController extends Controller
         $party->delete();
         return redirect('parties');
     }
+    Public function green()
+    {
+      $parties=Party::standpoint('泛綠')->get();
+      return view('parties.index')->with('parties',$parties);
+    }
+    Public function blue()
+    {
+      $parties=Party::standpoint('泛藍')->get();
+      return view('parties.index')->with('parties',$parties);
+    }
+    Public function no()
+    {
+      $parties=Party::standpoint('無')->get();
+      return view('parties.index')->with('parties',$parties);
+    }
+    Public function other()
+    {
+      $parties=Party::standpoint('其他')->get();
+      return view('parties.index')->with('parties',$parties);
+    }
 }

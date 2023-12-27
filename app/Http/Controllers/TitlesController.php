@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-#use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Models\Title;
 use App\Models\Party;
 use App\Http\Requests\CreateTitleRequest;
+
 
 class TitlesController extends Controller
 {
@@ -17,8 +18,9 @@ class TitlesController extends Controller
     public function index()
     {
         //
-        $titles=Title::all();
-        return view("titles.index")->with('titles',$titles);
+        $titles=Title::paginate(25);
+        $citys=Title::allcitys()->pluck('titles.city','titles.city');
+        return view("titles.index",['titles' => $titles, 'citys'=>$citys,'selectedcity'=>null]);
     }
 
     /**
@@ -173,4 +175,33 @@ class TitlesController extends Controller
         $title->delete();
         return redirect('titles');
     }
+
+    
+    public function men()
+    {
+        $titles = Title::gender("男")->paginate(25);
+        $citys=Title::allcitys()->pluck('titles.city','titles.city');
+        return view("titles.index",['titles' => $titles, 'citys'=>$citys]);
+    }
+    public function girl()
+    {
+        $titles = Title::gender("女")->paginate(25);
+        $citys=Title::allcitys()->pluck('titles.city','titles.city');
+        return view("titles.index",['titles' => $titles, 'citys'=>$citys,'selectedcity'=>null]);
+    }
+    public function no()
+    {
+        $titles = Title::gender("不公開")->paginate(25);
+        $citys=Title::allcitys()->pluck('titles.city','titles.city');
+        return view("titles.index",['titles' => $titles, 'citys'=>$citys,'selectedcity'=>null]);
+    }
+    public function city(Request $request)
+    {
+        $titles=Title::city($request->input('pos'))->paginate(25);
+        $citys=Title::allcitys()->pluck('titles.city','titles.city');
+        $selectedcity = $request->input('pos');
+        return view('titles.index',['titles'=>$titles,'citys'=>$citys,'selectedcity'=>$selectedcity]);
+    }
+    
+
 }

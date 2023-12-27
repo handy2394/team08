@@ -9,6 +9,15 @@
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
     <a href="{{ route('titles.create') }} ">新增議員</a>
     <a href="{{ route('titles.index') }} ">所有議員</a>
+    <a href="{{ route('titles.men') }} ">男性議員</a>
+    <a href="{{ route('titles.girl') }} ">女性議員</a>
+    <a href="{{ route('titles.no') }} ">不公開性別議員</a>
+    <form action="{{ url('titles/city') }}" method="GET">
+        {!! Form::label('pos','選取縣市:') !!}
+        {!! Form::select('pos', $citys , $selectedcity,['class'=>'form-control']) !!}
+        <input class='btn btn-default' type='submit' value='查詢' />
+        @csrf
+</form>
 </div>
 
 <table>
@@ -55,5 +64,6 @@
         </tr>
     @endforeach
 <table>
+{{ $titles->links() }}
 @endsection
 

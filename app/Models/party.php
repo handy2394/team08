@@ -26,5 +26,9 @@ class Party extends Model
     {
         $this->titles()->delete();
         return parent::delete();
+    }
+    Public function scopestandpoint($query,$standpoint)
+    {
+      $query->where('standpoint',"=",$standpoint);
     }   
 }
