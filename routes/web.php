@@ -40,7 +40,7 @@ Route::get('titles',[TitlesController::class,'index'])->name('titles.index');
 // 顯示單一民意代表資料
 Route::get('titles/{id}', [TitlesController::class, 'show'])->where('id', '[0-9]+')->name('titles.show');
 // 選定位置查詢民意代表
-Route::post('titles/city', [TitlesController::class, 'city'])->name('titles.city');
+Route::get('titles/city', [TitlesController::class, 'city'])->name('titles.city');
 // 修改單一民意代表表單
 Route::get('titles/{id}/edit', [TitlesController::class, 'edit'])->where('id', '[0-9]+')->name('titles.edit');
 // 刪除單一民意代表資料
