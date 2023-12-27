@@ -181,7 +181,7 @@ class TitlesController extends Controller
     {
         $titles = Title::gender("男")->paginate(25);
         $citys=Title::allcitys()->pluck('titles.city','titles.city');
-        return view("titles.index",['titles' => $titles, 'citys'=>$citys]);
+        return view("titles.index",['titles' => $titles, 'citys'=>$citys,'selectedcity'=>null]);
     }
     public function girl()
     {
