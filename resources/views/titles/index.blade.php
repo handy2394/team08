@@ -8,7 +8,7 @@
     <a href="{{ route('titles.create') }} ">新增民意代表</a>
     <a href="{{ route('titles.index') }} ">所有民意代表</a>
 
-    <a href="{{ route('titles.index') }} ">所有70屆以上</a>
+    <a href="{{ route('titles.session') }} ">所有70屆以上</a>
 
 </div>
 

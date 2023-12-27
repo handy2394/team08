@@ -33,7 +33,7 @@ class PartiesController extends Controller
     public function blue()
     {
         // 從 Model 拿資料
-        $parties = party::standpoint('blue Conference')->get();
+        $parties = party::standpoint('泛藍')->get();
         // 把資料送給 view
         return view('parties.index')->with('parties', $parties);
     }
@@ -42,7 +42,7 @@ class PartiesController extends Controller
     public function green()
     {
         // 從 Model 拿資料
-        $parties = party::standpoint('green Conference')->get();
+        $parties = party::standpoint('泛綠')->get();
         // 把資料送給 view
         return view('parties.index')->with('parties', $parties);
     }

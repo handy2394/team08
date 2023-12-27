@@ -38,7 +38,7 @@ Route::get('parties/{id}/edit', [PartiesController::class, 'edit'])->where('id',
 Route::patch('parties/update/{id}', [PartiesController::class, 'update'])->where('id', '[0-9]+')->name('parties.update');
 Route::post('parties/store', [PartiesController::class, 'store'])->where('id', '[0-9]+')->name('parties.store');
 // 顯示顯示男代表資料
-Route::get('titles/senior', [TitlesController::class, 'senior'])->name('titles.senior');
+Route::get('titles/session', [TitlesController::class, 'session'])->name('titles.session');
 
 Route::get('titles', [TitlesController::class, 'index'])->name('titles.index');
 Route::get('titles/{id}', [TitlesController::class, 'show'])->where('id', '[0-9]+')->name('titles.show');

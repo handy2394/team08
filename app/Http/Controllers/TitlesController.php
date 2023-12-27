@@ -17,7 +17,8 @@ class TitlesController extends Controller
     public function index()
     {
         $titles = title::all();
-        return view('titles.index')->with('titles', $titles);
+        
+        return view('titles.index', ['titles'=>$titles, 'titles'=>$titles]);
     }
 
     /**
@@ -27,18 +28,25 @@ class TitlesController extends Controller
      */
     public function create()
     {
+
         $parties = party::orderBy('parties.id', 'asc')->pluck('parties.tname', 'parties.id');
         return view('titles.create', ['parties' =>$parties, 'partySelected' => null]);
     }
     public function session()
     {
         // 從 Model 拿特定條件下的資料
-        $parties = party::senior()->get();
+        $titles = title::session()->get();
+       
        
         // 把資料送給 view
-        return view('parties.index')->with('parties', $parties);
+        return view('titles.index')->with('titles', $titles);
     }
-
+    public function position(Request $request)
+    {
+        $titles = titles::position($request->input('pos'))->get();
+        $positions = title::alltitles()->pluck('titles.position', 'titles.position');
+        return view('titles.index', ['titles'=>$titles,'positions'=>positions]);
+    }
     /**s
      * Store a newly created resource in storage.
      *
