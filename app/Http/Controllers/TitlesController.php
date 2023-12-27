@@ -19,7 +19,7 @@ class TitlesController extends Controller
     {
         $titles = title::paginate(25);
         $cities = title::allcities()->pluck('titles.city', 'titles.city');
-        return view('titles.index', ['titles' => $titles, 'cities'=>$cities,'selectedPosition'=>null]);
+        return view('titles.index', ['titles' => $titles, 'cities'=>$cities,'selectedCity'=>null]);
         //return Titles::all()->toArray();
     }
 
@@ -30,7 +30,7 @@ class TitlesController extends Controller
         $titles = Title::session()->paginate(25);
         $cities = title::allcities()->pluck('titles.city', 'titles.city');
         // 把資料送給 view
-        return view('titles.index', ['titles' => $titles, 'cities'=>$cities,'selectedPosition'=>null]);
+        return view('titles.index', ['titles' => $titles, 'cities'=>$cities,'selectedCity'=>null]);
         
     }
 
@@ -39,8 +39,8 @@ class TitlesController extends Controller
     {
         $titles = Title::city($request->input('ci'))->paginate(25);
         $cities = Title::allCities()->pluck('titles.city', 'titles.city');
-        $selectedPosition = $request->input('ci');
-        return view('titles.index', ['titles' => $titles, 'cities'=>$cities,'selectedPosition'=>$selectedPosition]);
+        $selectedCity = $request->input('ci');
+        return view('titles.index', ['titles' => $titles, 'cities'=>$cities,'selectedCity'=>$selectedCity]);
     }  
     /**
      * Show the form for creating a new resource.

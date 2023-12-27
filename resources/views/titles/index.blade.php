@@ -12,7 +12,7 @@
     <a href="{{ route('titles.session') }} ">70屆以後的民意代表</a>
     <form action="{{ url('titles/city') }}" method='GET'>
         {!! Form::label('ci', '選取地區：') !!}
-        {!! Form::select('ci', $cities,  $selectedPosition,['class' => 'form-control']) !!}
+        {!! Form::select('ci', $cities,  $selectedCity,['class' => 'form-control']) !!}
         <input class="btn btn-default" type="submit" value="查詢" />
         @csrf
     </form>    
