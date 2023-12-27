@@ -29,5 +29,8 @@ class title extends Model
         return $this->belongsTo('App\Models\party', 'tid', 'id');
     }
 
-
+    public function scopeSession($query,$session)
+    {
+        return $query->where('session', '>', 70)->orderBy('session', 'asc');
+    }
 }

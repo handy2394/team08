@@ -7,6 +7,9 @@
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
     <a href="{{ route('titles.create') }} ">新增民意代表</a>
     <a href="{{ route('titles.index') }} ">所有民意代表</a>
+
+    <a href="{{ route('titles.index') }} ">所有70屆以上</a>
+
 </div>
 
 <table>

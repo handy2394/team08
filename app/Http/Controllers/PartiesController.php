@@ -19,6 +19,7 @@ class PartiesController extends Controller
         return view('parties.index')->with('parties', $parties);
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,7 +29,23 @@ class PartiesController extends Controller
     {
         return view('parties.create');
     }
+    
+    public function blue()
+    {
+        // 從 Model 拿資料
+        $parties = party::standpoint('blue Conference')->get();
+        // 把資料送給 view
+        return view('parties.index')->with('parties', $parties);
+    }
 
+
+    public function green()
+    {
+        // 從 Model 拿資料
+        $parties = party::standpoint('green Conference')->get();
+        // 把資料送給 view
+        return view('parties.index')->with('parties', $parties);
+    }
     /**
      * Store a newly created resource in storage.
      *

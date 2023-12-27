@@ -30,6 +30,14 @@ class TitlesController extends Controller
         $parties = party::orderBy('parties.id', 'asc')->pluck('parties.tname', 'parties.id');
         return view('titles.create', ['parties' =>$parties, 'partySelected' => null]);
     }
+    public function session()
+    {
+        // 從 Model 拿特定條件下的資料
+        $parties = party::senior()->get();
+       
+        // 把資料送給 view
+        return view('parties.index')->with('parties', $parties);
+    }
 
     /**s
      * Store a newly created resource in storage.
