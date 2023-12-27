@@ -28,6 +28,10 @@ Route::get('/', function () {
 Route::get('titles', [TitlesController::class, 'index'])->name('titles.index');
 // 顯示
 Route::get('titles/{id}', [TitlesController::class, 'show'])->where('id', '[0-9]+')->name('titles.show');
+// 選定特定地區
+Route::get('titles/city', [TitlesController::class, 'city'])->name('titles.city');
+// 查詢特定資料
+Route::get('titles/session', [TitlesController::class, 'session'])->name('titles.session');
 // 修改
 Route::get('titles/{id}/edit', [TitlesController::class, 'edit'])->where('id', '[0-9]+')->name('titles.edit');
 // 刪除
@@ -43,6 +47,12 @@ Route::post('titles/store', [TitlesController::class, 'store'])->where('id', '[0
 
 
 Route::get('parties', [PartiesController::class, 'index'])->name('parties.index');
+//綠
+Route::get('parties/green', [PartiesController::class,'green'])->name('parties.green');
+//藍
+Route::get('parties/blue', [PartiesController::class, 'blue'])->name('parties.blue');
+//其他
+Route::get('parties/other', [PartiesController::class, 'other'])->name('parties.other');
 // 顯示
 Route::get('parties/{id}', [PartiesController::class, 'show'])->where('id', '[0-9]+')->name('parties.show');
 // 修改

@@ -9,6 +9,13 @@
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
     <a href="{{ route('titles.create') }} ">新增民意代表</a>
     <a href="{{ route('titles.index') }} ">所有代表</a>
+    <a href="{{ route('titles.session') }} ">70屆以後的民意代表</a>
+    <form action="{{ url('titles/city') }}" method='GET'>
+        {!! Form::label('ci', '選取地區：') !!}
+        {!! Form::select('ci', $cities,  $selectedPosition,['class' => 'form-control']) !!}
+        <input class="btn btn-default" type="submit" value="查詢" />
+        @csrf
+    </form>    
 </div>
 
 
@@ -57,4 +64,5 @@
 
     @endforeach  
 </table>
+{{ $titles->withQueryString()->links() }}
 @endsection

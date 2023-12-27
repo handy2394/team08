@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Title;
 use App\Models\Party;
 use App\Http\Requests\CreateTitleRequest;
+use Illuminate\Http\Request;
 
 class TitlesController extends Controller
 {
@@ -16,11 +17,31 @@ class TitlesController extends Controller
      */
     public function index()
     {
-        $titles = title::all();
-        return view('titles.index')->with('titles', $titles);
+        $titles = title::paginate(25);
+        $cities = title::allcities()->pluck('titles.city', 'titles.city');
+        return view('titles.index', ['titles' => $titles, 'cities'=>$cities,'selectedPosition'=>null]);
         //return Titles::all()->toArray();
     }
 
+
+    public function session()
+    {
+        // 從 Model 拿特定條件下的資料
+        $titles = Title::session()->paginate(25);
+        $cities = title::allcities()->pluck('titles.city', 'titles.city');
+        // 把資料送給 view
+        return view('titles.index', ['titles' => $titles, 'cities'=>$cities,'selectedPosition'=>null]);
+        
+    }
+
+
+    public function city(Request $request)
+    {
+        $titles = Title::city($request->input('ci'))->paginate(25);
+        $cities = Title::allCities()->pluck('titles.city', 'titles.city');
+        $selectedPosition = $request->input('ci');
+        return view('titles.index', ['titles' => $titles, 'cities'=>$cities,'selectedPosition'=>$selectedPosition]);
+    }  
     /**
      * Show the form for creating a new resource.
      *

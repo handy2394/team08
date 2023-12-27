@@ -7,6 +7,9 @@
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
     <a href="{{ route('parties.create') }} ">新增政黨</a>
     <a href="{{ route('parties.index') }} ">所有政黨</a>
+    <a href="{{ route('parties.green') }} ">綠色政治立場</a>
+    <a href="{{ route('parties.blue') }} ">藍色政治立場</a>
+    <a href="{{ route('parties.other') }} ">其他立場</a>
 </div>
 <table>
     <tr>
