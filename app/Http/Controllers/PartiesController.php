@@ -19,7 +19,22 @@ class PartiesController extends Controller
         
         return view('parties.index')->with('parties',$parties);
     }
+    public function green()
+    {
+        // 從 Model 拿資料
+        $parties = Party::standPoint('泛綠')->get();
+        // 把資料送給 view
+        return view('parties.index')->with('parties', $parties);
+    }
 
+
+    public function blue()
+    {
+        // 從 Model 拿資料
+        $parties = Party::standPoint('泛藍')->get();
+        // 把資料送給 view
+        return view('parties.index')->with('parties', $parties);
+    }
     /**
      * Show the form for creating a new resource.
      *

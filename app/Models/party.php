@@ -27,5 +27,9 @@ class party extends Model
         $this->titles()->delete();
         return parent::delete();
     }        
+    public function scopeStandPoint($query, $standPoint)
+    {
+        return $query->where('standPoint', '=', $standPoint);
+    }
 }
 

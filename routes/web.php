@@ -34,6 +34,10 @@ Route::get('parties/{id}/edit', [PartiesController::class, 'edit'])->where('id',
 Route::patch('parties/update/{id}', [PartiesController::class, 'update'])->where('id', '[0-9]+')->name('parties.update');
 // 儲存新政黨資料
 Route::post('parties/store', [PartiesController::class, 'store'])->where('id', '[0-9]+')->name('parties.store');
+// 顯示顯示泛綠政黨資料
+Route::get('parties/green', [PartiesController::class, 'green'])->name('parties.green');
+// 顯示顯示泛藍政黨資料
+Route::get('parties/blue', [PartiesController::class, 'blue'])->name('parties.blue');
 
 // 顯示顯示所有民意代表資料
 Route::get('titles',[TitlesController::class,'index'])->name('titles.index');
