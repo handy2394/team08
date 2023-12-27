@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\title;
 use App\Models\party;
 use App\Http\Requests\CreateTitleRequest;
+use Illuminate\Http\Request;
 
 class TitlesController extends Controller
 {
@@ -16,8 +17,9 @@ class TitlesController extends Controller
     public function index()
     {
         $titles=Title::all();
+        $city = Title::allCity()->pluck('titles.city', 'titles.city');
         
-        return view('titles.index')->with('titles',$titles);
+        return view('titles.index', ['titles' => $titles, 'city'=>$city, 'citySelected'=>null]);
     }
 
     /**
@@ -25,6 +27,14 @@ class TitlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function city(Request $request)
+    {
+        $titles = Title::city($request->input('pos'))->get();
+        $city = Title::allCity()->pluck('titles.city', 'titles.city');
+        $citySelected = $request->input('pos');
+        return view('titles.index', ['titles' => $titles,'city'=>$city, 'citySelected'=>$citySelected]);
+    }   
+
     public function create()
     {
         $parties = Party::orderBy('parties.id', 'asc')->pluck('parties.tname', 'parties.id');
@@ -52,32 +62,32 @@ class TitlesController extends Controller
             'website'=>'required',
             'tid'=>'required'
         ],[
-        "name.required" => "議員名稱 為必填",
-        "name.max" => "議員名稱 必須介於1~99個字元",
-        "name.min" => "議員名稱 必須介於1~99個字元",
-        "gender.required" => "議員性別 為必填",
-        "gender.string"=>"議員性別 必須為中文",
-        "gender.max" => "議員性別 必須介於1~20個字元",
-        "gender.min" => "議員性別 必須介於1~20個字元",
-        "session.required"=>"議員屆數 為必填",
-        "session.numeric"=>"議員屆數 必須為數字",
-        "title.required" => "議員職務 為必填",
-        "title.string"=>"議員職務 必須為中文",
-        "title.min"=>"議員職務 必須介於1~20個字元",
-        "title.max"=>"議員職務 必須介於1~20個字元",
-        "city.required" => "縣市 為必填",
-        "city.string"=>"縣市 必須為中文",
-        "city.min"=>"必須介於1~20個字元",
-        "city.max"=>"必須介於1~20個字元",
-        "area.required" => "選區 為必填",
-        "area.string"=>"選區 必須為中文",
-        "area.min"=>"必須介於1~20個字元",
-        "area.max"=>"必須介於1~20個字元",
-        "cellphone.required"=>"電話 為必填",
-        "cellphone.numeric"=>"電話 必須為數字",
-        "address.required" => "地址 為必填",
-        "website.required" => "個人網頁 為必填",
-        "tid.required" => "政黨 為必填",
+            "name.required" => "議員名稱 為必填",
+            "name.max" => "議員名稱 必須介於1~99個字元",
+            "name.min" => "議員名稱 必須介於1~99個字元",
+            "gender.required" => "議員性別 為必填",
+            "gender.string"=>"議員性別 必須為中文",
+            "gender.max" => "議員性別 必須介於1~20個字元",
+            "gender.min" => "議員性別 必須介於1~20個字元",
+            "session.required"=>"議員屆數 為必填",
+            "session.numeric"=>"議員屆數 必須為數字",
+            "title.required" => "議員職務 為必填",
+            "title.string"=>"議員職務 必須為中文",
+            "title.min"=>"議員職務 必須介於1~20個字元",
+            "title.max"=>"議員職務 必須介於1~20個字元",
+            "city.required" => "縣市 為必填",
+            "city.string"=>"縣市 必須為中文",
+            "city.min"=>"必須介於1~20個字元",
+            "city.max"=>"必須介於1~20個字元",
+            "area.required" => "選區 為必填",
+            "area.string"=>"選區 必須為中文",
+            "area.min"=>"必須介於1~20個字元",
+            "area.max"=>"必須介於1~20個字元",
+            "cellphone.required"=>"電話 為必填",
+            "cellphone.numeric"=>"電話 必須為數字",
+            "address.required" => "地址 為必填",
+            "website.required" => "個人網頁 為必填",
+            "tid.required" => "政黨 為必填",
 
     ]);
 

@@ -29,4 +29,13 @@ class title extends Model
     {
         return $this->belongsTo('App\Models\party','tid','id');
     }
+    public function scopeAllCity($query)
+    { 
+        return $query->select('city')->groupBy('city');
+    }
+
+    public function scopeCity($query, $pos)
+    {
+        return $query->where('city', '=', $pos);
+    }
 }
