@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\title;
 use App\Models\party;
 use App\Http\Requests\CreateTitleRequest;
+use Illuminate\Http\Request;
 
 class TitlesController extends Controller
 {
@@ -16,9 +17,9 @@ class TitlesController extends Controller
      */
     public function index()
     {
-        $titles = title::all();
-        
-        return view('titles.index', ['titles'=>$titles, 'titles'=>$titles]);
+        $titles = title::paginate(25);
+        $city = title::allCity()->pluck('titles.city', 'titles.city');
+        return view('titles.index', ['titles'=>$titles, 'city'=>$city, 'citySelected'=>null]);
     }
 
     /**
@@ -36,16 +37,19 @@ class TitlesController extends Controller
     {
         // 從 Model 拿特定條件下的資料
         $titles = title::session()->get();
-       
+        $positions = title::allPositions()->pluck('titles.position', 'titles.position');
+
        
         // 把資料送給 view
-        return view('titles.index')->with('titles', $titles);
+        return view('titles.index',['titles'=>$titles, 'positions'=>$positions]);
     }
-    public function position(Request $request)
+    public function city(Request $request)
     {
-        $titles = titles::position($request->input('pos'))->get();
-        $positions = title::alltitles()->pluck('titles.position', 'titles.position');
-        return view('titles.index', ['titles'=>$titles,'positions'=>positions]);
+        $titles = title::city($request->input('pos'))->paginate(25);
+        $city = title::allCity()->pluck('titles.city', 'titles.city');
+        $citySelected = $request->input('pos');
+
+        return view('titles.index', ['titles'=>$titles,'city'=>$city, 'citySelected'=>$citySelected]);
     }
     /**s
      * Store a newly created resource in storage.

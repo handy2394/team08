@@ -32,5 +32,5 @@ class party extends Model
     {
         return $query->where('standpoint', '=', $standpoint);
     }
-    
+  
 }

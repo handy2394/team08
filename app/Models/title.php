@@ -33,4 +33,15 @@ class title extends Model
     {
         return $query->where('session', '>', 70)->orderBy('session', 'asc');
     }
+
+    //*//////////////////////////////////////////////////////////
+    public function scopeAllCity($query)
+    { 
+        return $query->select('city')->groupBy('city');
+    }
+
+    public function scopeCity($query, $pos)
+    {
+        return $query->where('city', '=', $pos);
+    }  
 }
