@@ -4,7 +4,9 @@
 
 @section('taiwan_title')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    @can('admin')
     <a href="{{ route('parties.create') }} ">新增政黨</a>
+    @endcan
     <a href="{{ route('parties.index') }} ">所有政黨</a>
     <a href="{{ route('parties.green') }} ">泛綠政黨</a>
     <a href="{{ route('parties.blue') }} ">泛藍政黨</a>
@@ -22,8 +24,12 @@
         <th>政治立場</th>  
         <th>官方網站</th>  
         <th>操作1</th>  
+        @can('admin')
         <th>操作2</th>  
         <th>操作3</th>
+        @elsecan('manager')
+        <th>操作2</th>
+        @endcan
     <tr>     
     @foreach($parties as $party)
         <tr>
@@ -34,6 +40,7 @@
             <td>{{ $party->standpoint }} </td>
             <td>{{ $party->link }} </td>
             <td><a href="{{ route('parties.show',['id'=>$party->id]) }}">顯示</a></td>
+            @can('admin')
             <td><a href="{{ route('parties.edit',['id'=>$party->id]) }}">修改</a></td>
     
             <td>
@@ -43,8 +50,11 @@
                     @csrf
                 </form>
             </td>
+            @elsecan('manager')
+            <td><a href="{{ route('parties.edit', ['id'=>$party->id]) }}">修改</a></td>
+            @endcan
         </tr>    
-@endforeach
+    @endforeach
 <table>
 
 @endsection
