@@ -7,7 +7,9 @@
 
 @section('politics_contents')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+    @can('admin')
     <a href="{{ route('titles.create') }} ">新增民意代表</a>
+    @endcan
     <a href="{{ route('titles.index') }} ">所有代表</a>
     <a href="{{ route('titles.session') }} ">70屆以後的民意代表</a>
     <form action="{{ url('titles/city') }}" method='GET'>
@@ -35,8 +37,12 @@
         <th>個人網站</th>
         <th>黨派</th>
         <th>操作1</th>
+        @can('admin')
         <th>操作2</th>
         <th>操作3</th>
+        @elsecan('manager')
+        <th>操作2</th>
+        @endcan
     </tr>
     @foreach($titles as $title)
     <tr>
@@ -53,6 +59,7 @@
         <td>{{$title->website }}</td>
         <td>{{$title->party->tname }}</td>
         <td><a href="{{ route('titles.show', ['id'=>$title->id]) }}">顯示</a></td>
+        @can('admin')
         <td><a href="{{ route('titles.edit', ['id'=>$title->id]) }}">修改</a></td>    
         <td>
                 <form action="{{ url('/titles/delete', ['id' => $title->id]) }}" method="post">
@@ -61,6 +68,9 @@
                     @csrf
                 </form>
         </td>   
+        @elsecan('manager')
+        <td><a href="{{ route('titles.edit', ['id'=>$title->id]) }}">修改</a></td>
+        @endcan
     </tr>
 
     @endforeach  
