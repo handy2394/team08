@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 */
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
-        return view('titles');
+        return redirect('titles');
     });
 
     // 顯示顯示所有政黨資料
