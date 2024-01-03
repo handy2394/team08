@@ -66,3 +66,10 @@ Route::get('parties/green',[PartiesController::class, 'green'])->name('parties.g
 Route::get('parties/blue',[PartiesController::class, 'blue'])->name('parties.blue');
 Route::get('parties/no',[PartiesController::class, 'no'])->name('parties.no');
 Route::get('parties/other',[PartiesController::class, 'other'])->name('parties.other');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

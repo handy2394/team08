@@ -14,10 +14,10 @@
     <a href="{{ route('titles.no') }} ">不公開性別議員</a>
     <form action="{{ url('titles/city') }}" method="GET">
         {!! Form::label('pos','選取縣市:') !!}
-        {!! Form::select('pos', $citys , $selectedcity,['class'=>'form-control']) !!}
+        {!! Form::select('pos', $citys , $selectedcity, ['class'=>'form-control']) !!}
         <input class='btn btn-default' type='submit' value='查詢' />
         @csrf
-</form>
+    </form>
 </div>
 
 <table>
