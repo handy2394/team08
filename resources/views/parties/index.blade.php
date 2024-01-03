@@ -46,10 +46,10 @@
                     @csrf
                 </form>
             </td>
-        </tr>    
-        @elsecan('admin')
+            @elsecan('manager')
             <td><a href="{{ route('parties.edit',['id'=>$party->id]) }}">修改</a></td>
-        @endcan
+            @endcan
+        </tr>    
     @endforeach
 </table>
 @endsection
