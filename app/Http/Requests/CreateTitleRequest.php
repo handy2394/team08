@@ -66,6 +66,7 @@ class CreateTitleRequest extends FormRequest
             "cellphone.min" => "電話 至少9個字不含-",
 
             "address.required" => "通訊處 為必填",
+            "address.min" => "通訊處 至少8個字不含-",
 
             "website.required" => "個人網站 為必填",
 
