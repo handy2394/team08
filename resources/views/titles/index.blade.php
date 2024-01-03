@@ -4,8 +4,10 @@
 
 @section('taiwan_titles')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-    <a href="{{ route('titles.create') }} ">新增民意代表</a>
-    <a href="{{ route('titles.index') }} ">所有民意代表</a>
+@can('admin')
+<a href="{{ route('titles.create') }} ">新增民意代表</a>
+@endcan
+<a href="{{ route('titles.index') }} ">所有民意代表</a>
     <form action="{{ url('titles/city') }}" method='GET'>
         {!! Form::label('pos', '選取地區城市：') !!}
         {!! Form::select('pos', $city, $citySelected, ['class' => 'form-control']) !!}
