@@ -104,6 +104,7 @@ class PartiesController extends Controller
      */
     public function edit($id)
     {
+        parent::edit($id);
         $party = Party::findOrFail($id);
         return view('parties.edit', ['party'=>$party]);
     }
