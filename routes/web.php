@@ -32,6 +32,8 @@ Route::get('titles/{id}', [TitlesController::class, 'show'])->where('id', '[0-9]
 Route::get('titles/city', [TitlesController::class, 'city'])->name('titles.city');
 // 查詢特定資料
 Route::get('titles/session', [TitlesController::class, 'session'])->name('titles.session');
+//選定特定性別
+//Route::get('titles/gender', [TitlesController::class, 'gender'])->name('titles.gender');
 // 修改
 Route::get('titles/{id}/edit', [TitlesController::class, 'edit'])->where('id', '[0-9]+')->name('titles.edit');
 // 刪除
@@ -67,3 +69,14 @@ Route::get('parties/{id}/edit', [PartiesController::class, 'edit'])->where('id',
 Route::patch('parties/update/{id}', [PartiesController::class, 'update'])->where('id', '[0-9]+')->name('parties.update');
 // 儲存資料
 Route::post('parties/store', [PartiesController::class, 'store'])->where('id', '[0-9]+')->name('parties.store');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

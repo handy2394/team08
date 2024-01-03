@@ -42,4 +42,5 @@ class Title extends Model
         return $query->where('city', '=', $ci);
     }    
 
+    
 }

@@ -17,9 +17,11 @@ class TitlesController extends Controller
      */
     public function index()
     {
-        $titles = title::paginate(25);
-        $cities = title::allcities()->pluck('titles.city', 'titles.city');
-        return view('titles.index', ['titles' => $titles, 'cities'=>$cities,'selectedCity'=>null]);
+        $titles = Title::paginate(25);
+        $cities = Title::allcities()->pluck('titles.city', 'titles.city');
+        return view('titles.index', ['titles' => $titles, 
+                                     'cities'=>$cities,
+                                     'selectedCity'=>null,]);
         //return Titles::all()->toArray();
     }
 
@@ -28,9 +30,11 @@ class TitlesController extends Controller
     {
         // 從 Model 拿特定條件下的資料
         $titles = Title::session()->paginate(25);
-        $cities = title::allcities()->pluck('titles.city', 'titles.city');
+        $cities = Title::allcities()->pluck('titles.city', 'titles.city');
         // 把資料送給 view
-        return view('titles.index', ['titles' => $titles, 'cities'=>$cities,'selectedCity'=>null]);
+        return view('titles.index', ['titles' => $titles, 
+                                     'cities'=>$cities,
+                                     'selectedCity'=>null,]);
         
     }
 
@@ -40,8 +44,13 @@ class TitlesController extends Controller
         $titles = Title::city($request->input('ci'))->paginate(25);
         $cities = Title::allCities()->pluck('titles.city', 'titles.city');
         $selectedCity = $request->input('ci');
-        return view('titles.index', ['titles' => $titles, 'cities'=>$cities,'selectedCity'=>$selectedCity]);
+        return view('titles.index', ['titles' => $titles, 
+                                     'cities'=>$cities,
+                                     'selectedCity'=>$selectedCity,]);
     }  
+
+
+    
     /**
      * Show the form for creating a new resource.
      *
