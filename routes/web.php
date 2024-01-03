@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Auth;
 
 // 註解一下
 Route::get('/', function () {
-    return redirect('welcome');
+    return redirect('login');
 });
 Route::get('parties/blue', [PartiesController::class, 'blue'])->name('parties.blue');
 Route::get('parties/green', [PartiesController::class, 'green'])->name('parties.green');
