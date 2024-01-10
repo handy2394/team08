@@ -36,12 +36,12 @@ class TitlesController extends Controller
     public function session()
     {
         // 從 Model 拿特定條件下的資料
-        $titles = title::session()->get();
-        $positions = title::allPositions()->pluck('titles.position', 'titles.position');
+        $titles = title::session()->paginate(25);
+        $city = title::allcity()->pluck('titles.city', 'titles.city');
 
        
         // 把資料送給 view
-        return view('titles.index',['titles'=>$titles, 'positions'=>$positions]);
+        return view('titles.index',['titles'=>$titles, 'city'=>$city,'citySelected'=>null]);
     }
     public function city(Request $request)
     {
