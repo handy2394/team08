@@ -58,6 +58,8 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('titles/update/{id}', [TitlesController::class, 'update'])->where('id', '[0-9]+')->name('titles.update');
     // 儲存新民意代表資料
     Route::post('titles/store', [TitlesController::class, 'store'])->where('id', '[0-9]+')->name('titles.store')->middleware('can:admin');
+    // 顯示近年議員
+    Route::get('titles/session', [TitlesController::class, 'session'])->name('titles.session');
 });
 
     Auth::routes();

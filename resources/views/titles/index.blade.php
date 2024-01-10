@@ -8,12 +8,14 @@
 <a href="{{ route('titles.create') }} ">新增民意代表</a>
 @endcan
 <a href="{{ route('titles.index') }} ">所有民意代表</a>
-    <form action="{{ url('titles/city') }}" method='GET'>
+<a href="{{ route('titles.session') }} ">近幾屆立委</a>
+<form action="{{ url('titles/city') }}" method='GET'>
         {!! Form::label('pos', '選取地區城市：') !!}
         {!! Form::select('pos', $city, $citySelected, ['class' => 'form-control']) !!}
         <input class="btn btn-default" type="submit" value="查詢" />
         @csrf
-    </form>    
+</form>    
+    
 </div>
 
 

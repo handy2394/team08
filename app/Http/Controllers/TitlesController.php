@@ -34,6 +34,14 @@ class TitlesController extends Controller
         $citySelected = $request->input('pos');
         return view('titles.index', ['titles' => $titles,'city'=>$city, 'citySelected'=>$citySelected]);
     }   
+    public function session()
+    {
+        $titles = Title::session()->paginate(25);
+        $city = Title::allCity()->pluck('titles.city', 'titles.city');
+        return view('titles.index', ['titles' => $titles,
+                                    'city'=>$city,
+                                    'citySelected'=>null]);
+    }   
 
     public function create()
     {
