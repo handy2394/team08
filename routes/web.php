@@ -44,6 +44,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('titles/men',[TitlesController::class,'men'])->name('titles.men');
     Route::get('titles/girl',[TitlesController::class,'girl'])->name('titles.girl');
     Route::get('titles/no',[TitlesController::class,'no'])->name('titles.no');
+    Route::get('titles/young',[TitlesController::class,'young'])->name('titles.young');
 
 
 

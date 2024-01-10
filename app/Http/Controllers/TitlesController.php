@@ -204,6 +204,16 @@ class TitlesController extends Controller
         $selectedcity = $request->input('pos');
         return view('titles.index',['titles'=>$titles,'citys'=>$citys,'selectedcity'=>$selectedcity]);
     }
-    
+    public function young()
+    {
+        // 從 Model 拿特定條件下的資料
+        $titles = Title::young()->paginate(25);
+        $citys = Title::allcitys()->pluck('titles.city', 'titles.city');
+        // 把資料送給 view
+        return view('titles.index', ['titles' => $titles,
+                                      'citys'=>$citys,
+                                      'selectedcity'=>null]);
+                                      
+    }
 
 }

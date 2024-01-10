@@ -32,12 +32,17 @@ class Title extends Model
     {
       $query->where('gender','=',$gender);
     }
-    public function scopeallcitys($query)
+    public function scopeyoung($query)
     {
-      return $query->select('city')->groupBy('city');
+      return $query->where('session','>',50)->orderBy('session','asc');
     }
+    
     public function scopecity($query,$pos)
     {
       return $query->where('city','=',$pos);
+    }
+    public function scopeallcitys($query)
+    {
+      return $query->select('city')->groupBy('city');
     }
 }

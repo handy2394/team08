@@ -14,12 +14,15 @@
     <a href="{{ route('titles.men') }} ">男性議員</a>
     <a href="{{ route('titles.girl') }} ">女性議員</a>
     <a href="{{ route('titles.no') }} ">不公開性別議員</a>
+    <a href="{{ route('titles.young') }} ">年輕議員</a>
+    
     <form action="{{ url('titles/city') }}" method="GET">
         {!! Form::label('pos','選取縣市:') !!}
         {!! Form::select('pos', $citys , $selectedcity, ['class'=>'form-control']) !!}
         <input class='btn btn-default' type='submit' value='查詢' />
         @csrf
     </form>
+    
 </div>
 
 <table>
